@@ -1,0 +1,71 @@
+\zotelo{../thesis.bib}
+
+\chapter{Resonant Three Wave Interactions in FFE}
+\label{app:wave-interaction}
+
+The second order nonlinear current $\bj^{(2)}_{\rm nl}$ in Equation \ref{Maxwell2} reads
+\begin{eqnarray}\label{J2}
+	\bj^{(2)}_{\rm nl} &=& \nabla\cdot\be^{(1)}\frac{\be^{(1)}\times\hat{\bz}}{B_0} + \frac{\hat{\bz}\cdot\nabla\times\bb^{(1)}}{B_0}\bb^{(1)} \nonumber\\
+	&&+\frac{\bb^{(1)}\cdot\nabla\times\bb^{(1)} - \be^{(1)}\cdot\nabla\times\be^{(1)}}{B_0}\hat{\bz}-2\hat{\bz}\cdot(\nabla\times\bb^{(1)})\frac{\hat{\bz}\cdot\bb^{(1)}}{B_0}\hat{\bz} \, .
+\end{eqnarray}
+Note that the terms in the second line of the above equation (those proportional to $\hat{\bz}$) only source $A_z$,and thus do not excite any propagating waves. 
+
+Let us consider the interaction of a pair of linear waves 
+$\bA^{(1)}_{1}$ and $\bA^{(1)}_{2}$. 
+Then we substitute into Equation~(\ref{J2}) $\be^{(1)}$ and $\bb^{(1)}$ obtained from $\bA^{(1)}=\bA^{(1)}_{1}+\bA^{(1)}_{2}$. This yields the second order current,
+\begin{equation}\label{J2b}
+	\bj^{(2)}_{\rm nl} = \nabla\cdot\be_1^{(1)}\frac{\be_2^{(1)}\times\hat{\bz}}{B_0} + \frac{\hat{\bz}\cdot\nabla\times\bb_1^{(1)}}{B_0}\bb_2^{(1)} + (1\leftrightarrow 2) + (\mathrm{terms \ proportional \ to \ } \hat{\bz}) \, ,
+\end{equation}
+where $(1\leftrightarrow 2)$ means the repetition of previous terms but with subscript $1$ and $2$ exchanged.
+We seek a solution $\bA^{(2)}$ of Equation~(\ref{Maxwell2}) which is sourced by $\bj_{\rm nl}^{(2)}$, is itself an eigenmode, and whose amplitude grows in time. Our ansatz is thus $\bA^{(2)}(\boldsymbol{r}, t) = \Lambda_m(t)\boldsymbol{e}_m\exp[i(\boldsymbol{k}^{(2)}\cdot\boldsymbol{r}-\omega^{(2)}t)]$ where $\omega^{(2)}$ and $\boldsymbol{k}^{(2)}$ satisfy either the fast or \alfven wave dispersion relations.
+Inserting $\bA^{(2)}(\boldsymbol{r}, t)$ into Equation~(\ref{Maxwell2}), we obtain the evolution equation for the wave amplitude $\Lambda_m(t)$,
+%
+\begin{equation}\label{ampevol}
+	\partial^2_t \Lambda_m(t) - 2i\omega^{(2)} \partial_t \Lambda_m(t) =\omega^{(2)} \bj^{(2)}_{\rm nl}\cdot\boldsymbol{e}_m e^{i(\omega^{(2)}t-\boldsymbol{k}^{(2)}\cdot\boldsymbol{r})} \, .
+\end{equation}
+Inspection of Equation~(\ref{J2b}) reveals that $\bj^{(2)}_{\rm nl}$ is proportional to $\exp[i(\boldsymbol{k}_{12} \cdot\boldsymbol{r}-\omega_{12} t)]$ where $\boldsymbol{k}_{12}=\boldsymbol{k}_1^{(1)}+\boldsymbol{k}_2^{(1)}$ and $\omega_{12}=\omega_1^{(1)}+\omega_2^{(1)}$. The right hand side of Equation~(\ref{ampevol}) may thus be written as
+\begin{equation}\label{eqn:lambda-ode1}
+	\partial^2_t \Lambda_m(t) - 2i\omega^{(2)} \partial_t \Lambda_m(t) =C_{12m} e^{i (\boldsymbol{k}_{12}-\boldsymbol{k}^{(2)})\cdot\boldsymbol{r}} e^{-i (\omega_{12}-\omega^{(2)})t}\, ,
+\end{equation}
+where $C_{12m}$ has no space or time dependence (these coefficients describe the strength of wave-wave interactions and are evaluated below for each of the allowed channels).
+The absence of spatial dependence on the left hand side of 
+Equation~(\ref{eqn:lambda-ode1}) implies that its right hand side is independent of $\boldsymbol{r}$, which requires $\boldsymbol{k}^{(2)}=\boldsymbol{k}_{12}$.
+The temporal evolution of $\Lambda_m(t)$ satisfies the equation,
+\begin{equation}\label{eqn:lambda-ode2}
+	\partial^2_t \Lambda_m(t) - 2i\omega^{(2)} \partial_t \Lambda_m(t) = C_{12m} e^{-i (\omega_{12}-\omega^{(2)})t} \, .
+\end{equation}
+The general solution of Equation~(\ref{eqn:lambda-ode2}) subject to the initial condition $\Lambda_m(0)=0$ (and neglecting the constant of integration) is given by
+%
+\begin{equation}
+	\Lambda_m(t) = C_{12m} \frac{1 - e^{-i(\omega_{12} - \omega^{(2)})t}}{\omega_{12}^2 - (\omega^{(2)})^2} \, .
+\end{equation}
+%
+For arbitrary values of $\omega^{(2)}$, the amplitude
+oscillates in time. However, as $\omega^{(2)} \rightarrow \omega_{12}$, the oscillation period grows longer, and when the resonance condition is met precisely, $\Lambda_m(t) \rightarrow i C_{12m} t / 2 \omega_{12}$. Energy transfer from the primary waves is only possible for such resonant interactions.
+
+Below we list the expressions for $C_{12m}$ for each allowed resonant channel.
+\begin{enumerate}
+	\item $\mathcal{A}+\mathcal{A}\rightarrow\mathcal{F}'$
+	\begin{equation}
+C_{\mathcal{A}\mathcal{A}\mathcal{F}'}=\frac{-i \omega}{B_0\sqrt{\omega \omega_1\omega_2}} \frac{\Lambda_1\Lambda_2}{k_{\perp}k_{1\perp}k_{2\perp}}\left[\left( \omega_1\omega_2 - k_{1z}k_{2z} \right) \left(2k_{1\perp}^2k_{2\perp}^2 + (k_{1\perp}^2+k_{2\perp}^2)\boldsymbol{k}_{1\perp}\cdot \boldsymbol{
+	k}_{2\perp} \right)\right]\, .
+	\end{equation}
+Here two interacting \alfven waves with frequencies $\omega_1(\boldsymbol{k}_1)$ and $\omega_2(\boldsymbol{k}_2)$, and amplitudes $\Lambda_1$ and $\Lambda_2$, generate a fast mode $\omega(k)$ that satisfies the resonance conditions $\boldsymbol{k}=\boldsymbol{k}_1+\boldsymbol{k}_2$ and $\omega=\omega_1+\omega_2$.
+
+	\item $\mathcal{A}+\mathcal{F}\rightarrow\mathcal{F}'$
+	\begin{equation}
+    C_{\mathcal{A}\mathcal{F}\mathcal{F}'}=\frac{ i \omega}{B_0\sqrt{\omega \omega_\mathcal{F}\omega_\mathcal{A}}} \frac{\Lambda_{\mathcal{A}}\Lambda_{\mathcal{F}}}{k_{\perp}k_{\mathcal{A}\perp}k_{\mathcal{F}\perp}}\left[\left( \omega_\mathcal{A}\omega_\mathcal{F} - k_{\mathcal{A}z}k_{\mathcal{F}z} \right) k_{\mathcal{A}\perp}^2\left( \boldsymbol{k}_{\mathcal{F}\perp}\times \boldsymbol{k}_{\mathcal{A}\perp} \right)\cdot\hat{\bz} \right]\, .
+	\end{equation}
+Here an \alfven wave with frequency $\omega_{\mathcal{A}}(\boldsymbol{k}_{\mathcal{A}})$ and amplitude $\Lambda_{\mathcal{A}}$ interacts with a fast mode with frequency $\omega_{\mathcal{F}}(\boldsymbol{k}_{\mathcal{F}})$ and amplitude $\Lambda_{\mathcal{F}}$. The interaction generates a new fast mode $\omega(\boldsymbol{k})$ that satisfies $\omega=\omega_{\mathcal{A}}+\omega_{\mathcal{F}}$ and $\boldsymbol{k}=\boldsymbol{k}_{\mathcal{A}}+\boldsymbol{k}_{\mathcal{F}}$.
+	 
+    \item $\mathcal{A}+\mathcal{F}\rightarrow\mathcal{A}'$
+	\begin{equation}
+    C_{\mathcal{A}\mathcal{F}\mathcal{A}'}=\frac{ i \omega}{B_0\sqrt{\omega \omega_\mathcal{F}\omega_\mathcal{A}}} \frac{\Lambda_{\mathcal{A}}\Lambda_{\mathcal{F}}}{k_{\perp}k_{\mathcal{A}\perp}k_{\mathcal{F}\perp}}\left[\left( \omega_\mathcal{A}\omega_\mathcal{F} - k_{\mathcal{A}z}k_{\mathcal{F}z} \right) k_{\mathcal{A}\perp}^2\left( \boldsymbol{k}_{\mathcal{F}\perp}\cdot \boldsymbol{k}_{\mathcal{A}\perp} + k^2_{\mathcal{F}\perp} \right) \right]\, .
+	\end{equation}
+Here the interaction is similar to the previous one, except that the third (generated) wave $\omega(\boldsymbol{k})$ is an \alfven wave rather than a fast mode.
+\end{enumerate}
+
+% Local Variables:
+% TeX-master: "../thesis"
+% zotero-collection: #("16" 0 2 (name "Thesis"))
+% End:

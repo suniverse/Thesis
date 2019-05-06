@@ -1,0 +1,324 @@
+\zotelo{../thesis.bib}
+
+\chapter{Magnetohydrodynamics (MHD)}
+\label{chap:mhd}
+
+\section{Ideal MHD}
+\label{sec:ideal}
+
+\subsection{Nonrelativistic ideal MHD}
+Just like the dynamics of a system of particles on the scale much larger than their mean free path can be well described by hydrodynamics, magnetohydrodynamics (MHD) provides a good description for the dynamics of current-carrying particle systems in the electromagnetic fields where the characteristic length scale of interest is much larger than the mean free path as well as the gyroradius of charged particles.
+In addition to the continuity equation
+\begin{eqnarray}\label{eq:mhd-continuity}
+	\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \boldsymbol{v})=0,
+\end{eqnarray}
+in MHD, the momentum equation of the fluid is modified with the Lorentz force $\boldsymbol{j}\times \boldsymbol{B}/c$
+\begin{eqnarray}\label{eq:mhd-vel}
+	\rho \left(\frac{\partial \boldsymbol{v}}{\partial t} + \boldsymbol{v}\cdot \nabla \boldsymbol{v}\right) = -\nabla P +\frac{ \boldsymbol{j}\times \boldsymbol{B}}{c}.
+\end{eqnarray}
+The current $\boldsymbol{j}$ can be determined from the electrical field $\boldsymbol{E'}$ in the rest frame of the fluid through Ohm's law
+\begin{eqnarray}\label{eq:ohm-fluid}
+	\boldsymbol{j} = \sigma_{\rm el} \boldsymbol{E'}
+\end{eqnarray}
+where $\sigma_{\rm el}$ is the electrical conductivity.
+For nonrelativistic fluid $v\ll c$, the Lorentz transformation of the electromagnetic field $\boldsymbol{E'} \approx \boldsymbol{E} + \boldsymbol{v}\times \boldsymbol{B}/c$, Equation~\ref{eq:ohm-fluid} can be written as 
+\begin{eqnarray}\label{eq:mhd-j}
+	\frac{\boldsymbol{j}}{\sigma_{\rm el}} = \boldsymbol{E} +\frac{ \boldsymbol{v}}{c}\times \boldsymbol{B}.
+\end{eqnarray}
+The ideal MHD limit applies when the fluid has perfect conductivity $\sigma_{\rm el}\rightarrow\infty$, and therefore 
+\begin{eqnarray}\label{eq:mhd-vanshing-e}
+	\boldsymbol{E}=-\frac{\boldsymbol{v}}{c}\times\boldsymbol{B}.
+\end{eqnarray}.
+Magnetic fields are evolved according to Faraday's law
+\begin{eqnarray}\label{eq:mhd-induction}
+	\frac{\partial \boldsymbol{B}}{\partial t} = -c\nabla\times\boldsymbol{E} = \nabla\times(\boldsymbol{v}\times\boldsymbol{B}).
+\end{eqnarray}
+And the electrical field produced by the displacement current  is suppressed by a factor of $(v/c)^2$ for nonrelativistic fluid and therefore can be neglected.
+Hence, Ampere's law implies
+\begin{eqnarray}
+	\boldsymbol{j}=\frac{c}{4\pi}\nabla\times \boldsymbol{B}.
+\end{eqnarray}
+The momentum equation (Equation~\ref{eq:mhd-vel}) now becomes
+\begin{eqnarray}\label{eq:mhd-momentum}
+	\rho \left(\frac{\partial \boldsymbol{v}}{\partial t} + \boldsymbol{v}\cdot \nabla \boldsymbol{v}\right) = -\nabla P + \frac{(\nabla\times \boldsymbol{B})\times\boldsymbol{B}}{4\pi} = -\nabla\left( P + \frac{B^2}{4\pi} \right) + \frac{\boldsymbol{B}\cdot\nabla\boldsymbol{B}}{4\pi}.
+\end{eqnarray}
+Equation~\ref{eq:mhd-continuity}, \ref{eq:mhd-momentum}, \ref{eq:mhd-induction} together with the equation of state for the fluid $P(\rho)$ and the divergence constraint of magnetic fields $\nabla\cdot\boldsymbol{B}=0$ forms the full set of ideal nonrelativistic MHD equations.
+
+\subsection{Waves in nonrelativistic ideal MHD}
+Linearization of MHD equations for small perturbations using $\delta P = c_s^2\delta \rho$ where $c_s$ is the sound speed of the fluid leads to three modes of waves supported by MHD.
+The first one is a purely shear transverse wave with perturbed magnetic perpendicular to the background field.
+This mode is called \alfven wave with the dispersion relation 
+\begin{eqnarray}
+	\omega^2 = v_A^2 k_{\parallel}^2
+\end{eqnarray}
+where $k_{\parallel}$ is the wavevector component parallel to the background magnetic field.
+$v_A\equiv B/sqrt{4\pi\rho}$ is called the \alfven speed.
+\alfven waves have group velocity along the background field and can therefore only transport energy in that direction.
+The other two wave modes have dispersion relations
+\begin{eqnarray}\label{eq:magnetosonic}
+	\omega^2 = \frac{k^2}{2}\left[ c_s^2 + v_A^2 \pm\sqrt{(c_s^2-v_A^2)^2+4 c_s^2 v_A^2k_\perp^2/k^2}  \right]
+\end{eqnarray}
+where $k_\perp$ is the wavevector component perpendicular to the background magnetic field.
+These two waves are called fast (with $+$ in Equation~\ref{eq:magnetosonic}) and slow (with $-$ in Equation~\ref{eq:magnetosonic}) magnetosonic waves. Compression of the fluid is involved in exciting these waves.
+
+In MHD, nonlinear interactions between waves govern the chaotic behavior of turbulence.
+This type of turbulence is called wave turbulence which is different from hydrodynamical turbulence in which interaction between vortices dominates.
+The basic formulation of wave turbulence is reviewed in Appendix \ref{app:wave-turbulence} and more details can be found in \citet{2011LNP...825.....N}.
+
+\subsection{Relativistic MHD (RMHD)}
+For relativistic fluids, the ideal MHD equations can be more easily written down using the covariant equations of conservative quantities.
+\begin{eqnarray}\label{eq:rmhd-covariant}
+	\nabla_\mu (\rho u^\mu) &=& 0, \\
+	\nabla_\mu T^{\mu\nu} &=& 0,\\
+	\nabla_\mu F^{*\mu\nu}&=& 0.
+\end{eqnarray}
+Here $u^\mu$ is the 4-velocity field of the fluid, $F^{*\mu\nu}$ is the dual of the electromagnetic tensor $F^{\mu\nu}$ and $T^{\mu\nu}$ is the stress-energy tensor
+\begin{eqnarray}
+	T^{\mu\nu} = \left(\rho h + \frac{b^2}{4\pi}\right)u^\mu u^\nu + \left(P^2 + \frac{b^2}{8\pi}\right) g^{\mu\nu} - \frac{b^\mu b^\nu}{4\pi}
+\end{eqnarray}
+where $h= 1+\epsilon +P/\rho$ is the specific enthalpy with specific internal energy $\epsilon$, $b^\mu=u_\mu F^{*\mu\nu}$ is the magnetic field in the fluid frame and $g^{\mu\nu}$ is the metric tensor.
+The ideal MHD condition of vanishing electrical in the fluid frame (Equation~\ref{eq:mhd-vanshing-e}) translates to $u_\mu F^{\mu\nu}=0$, which implies $E<B$ in the lab frame for both nonrelativistic and relativistic MHD.
+
+\section{Force-Free Electrodynamics (FFE)}
+\label{sec:ffe}
+
+In a magnetic dominated relativistic plasma, where the magnetic energy density is much larger than the rest mass energy density $B^2/4\pi\gg \rho c^2$, a simple approximation of relativistic MHD can be applied where the plasma inertia is neglected.
+This approximation is called Force-Free Electrodynamics (FFE).
+In this section, we utilize units in which speeds are measured in units of the speed of light $c$, and electric ($\boldsymbol{E}$) and magnetic ($\boldsymbol{B}$) field values are normalized by $\sqrt{4 \pi}$. 
+
+The dynamical equations are given by Maxwell's equations,
+%
+\begin{eqnarray}\label{eq:Maxwell}
+	\frac{\partial\boldsymbol{B}}{\partial t}+\nabla\times \boldsymbol{E},
+    \qquad
+	\frac{\partial\boldsymbol{E}}{\partial t}-\nabla\times \boldsymbol{B} &=& -\boldsymbol{J} \, ,
+\end{eqnarray}
+%
+together with 
+the vanishing force condition $\nabla_\mu T^{\mu\nu}=0$ or
+%
+\begin{equation}\label{ffe_condition}
+	\rho_e \boldsymbol{E}+\boldsymbol{J}\times \boldsymbol{B} = 0 \, ,
+\end{equation}
+%
+where $\rho_e=\nabla\cdot\be$ is the charge density. The force-free condition, Equation~\ref{ffe_condition}, requires $\be \cdot \bb = 0$ and $E < B$.
+Equation~\ref{ffe_condition} and $\partial_t(\be \cdot \bb) = 0$ together yield the the following expression for the electric current density (e.g. \citet{2002MNRAS.336..759K}),
+%
+\begin{equation}\label{current}
+	\bj=\boldsymbol{J}_{\rm FFE} \equiv \rho_e \frac{\boldsymbol{E}\times\boldsymbol{B}}{B^2}+\frac{\boldsymbol{B}\cdot\nabla\times\boldsymbol{B}-\boldsymbol{E}\cdot\nabla\times\boldsymbol{E}}{B^2}\boldsymbol{B} \, .
+\end{equation}
+%
+$\bj_{\rm FFE}$ introduces nonlinearity into the Maxwell equations.
+Since FFE neglects the plasma energy, the total energy of the system is given by
+%
+\begin{equation}
+	U_{\rm tot} = \int\md V\;\frac{1}{2}(B^2+E^2) \, .
+\end{equation}
+%
+This energy is formally conserved because Equation~\ref{ffe_condition} guarantees $\be \cdot \bj = 0$.
+
+\subsection{Wave solutions}
+%
+We will use the temporal gauge where the electric scalar potential $\varphi$ is set to zero, and the vector potential $\bA$ fully specifies the electromagnetic field,
+%
+\begin{eqnarray}\label{potential}
+	\boldsymbol{B} = \nabla\times \bA, \qquad \boldsymbol{E} = - \frac{\partial \bA}{\partial t} \, .
+\end{eqnarray}
+%
+The Maxwell equations then reduce to 
+%
+\begin{equation}\label{reducedMax}
+	\frac{\partial^2\bA}{\partial t^2} + \nabla\times \nabla\times\bA = \bj \, .
+\end{equation}
+%
+
+We approximate the steady background magnetic field $\bb^{(0)}$ as uniform (i.e. limit our consideration to waves much shorter than the variation scale of the background field), and choose the $z$-axis along $\bb^{(0)}$ and the $y$-axis along $\bA^{(0)}$,
+%
+\begin{equation}
+  \bA^{(0)}=B_{0}x\,\hat{\boldsymbol{y}}, \qquad 
+ \bb^{(0)} = B_{0}\, \hat{\boldsymbol{z}},   \qquad \boldsymbol{E}^{(0)}=0.
+\end{equation} 
+%
+$A^{(0)}$ has no time dependence, and so there is no background electric field.
+Approximate solutions for waves and their interactions may be obtained by use of a perturbative expansion,
+%
+\begin{eqnarray}\label{pert}
+	\bA = \bA^{(0)}
+    +\epsilon \bA^{(1)}+\epsilon^2\bA^{(2)}+\cdots,
+\end{eqnarray}
+%
+where $\epsilon\ll 1$.
+We seek solutions for the perturbed quantities of the form 
+%
+\begin{equation}
+\label{Fourier}
+\bA^{(n)}(t,\boldsymbol{r}) \propto \exp[i(\boldsymbol{k}^{(n)} \cdot \boldsymbol{r} - \omega^{(n)} t)]\, ,
+ \qquad n\geq 1,
+\end{equation}
+%
+where $\boldsymbol{r}=(x,y,z)$ is the position vector.
+
+Inserting Equation~(\ref{potential}) into the expression for $\bj$ (Equation~\ref{current}), substituting the result into Equation~\ref{reducedMax}, and keeping only terms up to the first order in $\epsilon$ yields the  linear equation for $\bA^{(1)}$ of the form
+%
+\begin{equation}\label{Maxwell1}
+   \mathcal{L}[\bA^{(1)}]=0,
+\end{equation} 
+%
+where 
+%
+\begin{equation}
+  \mathcal{L}\equiv \frac{\partial^2}{\partial t^2} + (\nabla\times \nabla\times)_\perp
+\end{equation}
+%
+is a linear differential operator. The operator becomes algebraical when it is applied to the Fourier modes (Equation~\ref{Fourier}), and the wave equation becomes $L\bA^{(1)}=0$, where $L(\omega,\boldsymbol{k})$ is a matrix. The condition $\det L=0$ for the existence of solutions $\bA^{(1)}\neq 0$ gives two pairs of roots $\omega(\boldsymbol{k})$, which describe the dispersion relations of the propagating eigenmodes. The corresponding eigenvectors $\boldsymbol{e}_m$ represent the wave polarization, and each eigenmode may be written in the form
+%
+\begin{equation}
+  \bA^{(1)}_m=\Lambda_m\,\boldsymbol{e}_m,
+\end{equation}
+%
+where $\Lambda_m$ represents the wave amplitude.
+
+For any Fourier mode the induction equation $\partial \bb/\partial t=-\nabla\times\be$ implies $\omega\bb=\boldsymbol{k}\times\be$, and hence the condition $\be\cdot\bb=0$ is automatically satisfied. In our setting, the first-order expansion of $\be\cdot\bb =\be^{(0)}\cdot\bb^{(1)}+\be^{(1)}\cdot\bb^{(0)}\propto \bA^{(1)}\cdot\bb^{(0)}$ implies
+\begin{equation}
+\label{eq:Az}
+  A^{(1)}_z=0,
+\end{equation}
+i.e. the polarization vectors $\boldsymbol{e}_m$ must be perpendicular to the background magnetic field. 
+
+A straightforward calculation shows that two distinct modes are supported by FFE:
+%
+\begin{enumerate}
+	\item \alfven wave ---
+	This mode has the dispersion relation $\omega(\boldsymbol{k})=\pm k_z$ and the polarization vector
+    %
+	\begin{equation} \label{polA}
+		\boldsymbol{e}_\mathcal{A} = \frac{\boldsymbol{k}_\perp}{\sqrt{\omega}|\boldsymbol{k}_\perp|}\,,
+	\end{equation}
+	%
+	where $\boldsymbol{k}_\perp$ is the component of wave vector perpendicular to the background field $\bb^{(0)}$.
+	The electric field in the wave $\be^{(1)}=-i\omega\bA^{(1)}$ is along $\boldsymbol{k}_\perp$, and the magnetic field $\bb^{(1)}=i\boldsymbol{k}\times\bA^{(1)}$ is along $\hat{\boldsymbol{z}}\times\boldsymbol{k}_\perp$.
+	\alfven waves have group velocity along $\pm \hat{\boldsymbol{z}}$, and therefore can only transport energy parallel (or anti-parallel) to the background field. The sign in the dispersion relation indicates the direction of the wave. The current associated with \alfven waves is
+    $\bj_{\mathcal{A}} \propto
+    k_\perp \sqrt{\omega} \hat{\boldsymbol{z}}$, which is non-zero for $k_\perp \ne 0$.
+
+	\item Fast wave ---
+	The dispersion relation is $\omega(\boldsymbol{k})=\pm |\boldsymbol{k}|$ with the polarization vector
+    %
+    \begin{equation} \label{polF}
+	\boldsymbol{e}_\mathcal{F} = \frac{\boldsymbol{k}_\perp\times\hat{\boldsymbol{z}}}{\sqrt{\omega}|\boldsymbol{k}_\perp|} \, .
+	\end{equation}
+    %
+    Then $\be^{(1)}$ is along $\boldsymbol{k}_\perp\times\hat{\boldsymbol{z}}$, and $\bb^{(1)}=(\boldsymbol{k}\times\be^{(1)})/\omega$ is in the $\boldsymbol{k}_\perp$-$\hat{\boldsymbol{z}}$ plane and perpendicular to $\boldsymbol{k}$.
+	Fast waves in FFE create no charge density $\rho_e=\nabla\cdot \be^{(1)}=i\boldsymbol{k}\cdot \be^{(1)}=0$, and also no current density, $\bj_{\mathcal{F}}=0$.
+    Therefore, the fast waves propagate as vacuum electromagnetic waves.
+\end{enumerate}
+
+When $k_\perp=0$, the two wave modes become degenerate. Notably, while these wave solutions have been derived from the linearized equations, they are in fact exact nonlinear solutions to the FFE equations.
+
+The polarization vectors $\boldsymbol{e}_{\mathcal{A},\mathcal{F}}$ in Equations \ref{polA} and \ref{polF} are normalized so that the energy of an ensemble of fast and \alfven waves takes the form
+%
+\begin{equation}
+	U =\sum\limits_{m=\mathcal{A},\mathcal{F}} \sum\limits_{\boldsymbol{k}}\omega_m
+\Lambda_m^\star(\boldsymbol{k})
+\Lambda_m(\boldsymbol{k}).
+\end{equation}
+%
+
+\subsection{Wave-wave interactions}
+%
+Nonlinear interactions between waves arise from the current density $\bj$.
+The lowest order interaction involves three waves, where two waves generate a third. These three-wave interactions are identified by inserting the expansion for two modes, $\bA^{(1)} = \bA^{(1)}_1 + \bA^{(1)}_2$, into Maxwell's equations, and equating the second order terms,
+%
+\begin{eqnarray}\label{Maxwell2}
+	\mathcal{L}[\bA^{(2)}] =  \bj^{(2)}_{\rm nl} \, ,
+\end{eqnarray}
+The second order term $\bj^{(2)}_{\rm nl}$ in the-force free current is cumbersome and presented in Appendix \ref{app:wave-interaction}. It is instructive to consider the following variants of the incoming waves $\bA^{(1)}_1+\bA^{(1)}_2$.
+
+For two incoming fast modes one finds that $\boldsymbol{J}_{\rm nl}^{(2)}\neq 0$ is possible (in contrast to their $\boldsymbol{J}^{(1)}=0$). However in this case, $\boldsymbol{J}_{\rm nl}^{(2)}$ is parallel to the guide field $\bb^{(0)}$, and  sources $\bA^{(2)}$ along $\hat {\boldsymbol{z}}$. 
+There are no propagating modes with $A_z\neq 0$ (see Equation~(\ref{eq:Az})), and so the three-wave interaction with two incoming fast modes is suppressed. 
+
+For two incoming \alfven waves propagating in the same direction along the guide field ($k^{(1)}_{1,z}$ has the same sign as $k^{(1)}_{2,z}$), one finds that $\bj^{(2)}_{\rm nl}$ vanishes. Therefore, only counter-propagating \alfven waves can generate new waves through 3-wave interaction.
+The generated wave has wavevector $\boldsymbol{k}^{(2)} = \boldsymbol{k}^{(1)}_1+ \boldsymbol{k}^{(1)}_2$ and frequency $\omega^{(2)} = \omega^{(1)}_1+\omega^{(1)}_2$. 
+The excitation of the second-order wave is enhanced for the resonant three-wave interaction, meaning that $\bA^{(2)}$ is also a linear eigenmode. One can show that $\boldsymbol{k}^{(2)}$ and $\omega^{(2)}$ may satisfy the dispersion relation of \alfven waves only if
+one of the incoming waves has $k_z = 0$, and such modes do not propagate, as they have $\omega=0$ according to the dispersion relation $\omega=\pm k_z$.
+Therefore, two counter-propagating \alfven waves can only participate in resonant interactions where the outgoing wave is a fast mode ($\mathcal{A}+\mathcal{A}\rightarrow \mathcal{F}$).
+Resonant three-wave interactions are also possible between an incoming \alfven wave and an incoming fast wave, and the outgoing wave can be either a fast wave or an \alfven wave ($\mathcal{A}+\mathcal{F}\rightarrow \mathcal{A/F}$).
+
+In the absence of fast waves, the dominant resonant interactions for \alfven waves are four-wave interactions \citep{1994ApJ...432..612S}. 
+They satisfy the relations $\boldsymbol{k}_1+ \boldsymbol{k}_2 = \boldsymbol{k}^\prime_1+ \boldsymbol{k}^\prime_2$ and $\omega_1+\omega_2 = \omega^\prime_1+\omega^\prime_2$ 
+where quantities with and without primes correspond to the incoming and outgoing \alfven waves, respectively. Together with the dispersion relation $\omega(\boldsymbol{k})=|k_z|$, the resonant conditions imply $k^\prime_{1z}=k_{1z}$ and $k^\prime_{2z}=k_{2z}$. 
+Then energy can only cascade to waves with increasing $\boldsymbol{k}_\perp$, perpendicular to the background magnetic field.
+Fast mode excitation will allow some cascade in $k_z$, however it will be weaker than the cascade in $\boldsymbol{k}_\perp$.
+
+\section{Non-ideal corrections}
+\label{sec:nonideal}
+
+When the plasma fluid has finite conductivity $\sigma_{\rm el}$, Equation \ref{eq:mhd-induction} should be fed with the full expression of Equation \ref{eq:mhd-j} to account for the non-ideal effects
+\begin{eqnarray}\label{eq:mhd-induction-nonideal}
+	\frac{\partial \boldsymbol{B}}{\partial t} = -c\nabla\times\boldsymbol{E} = \nabla\times\left(\boldsymbol{v}\times\boldsymbol{B}-\frac{c\bj}{\sigma_{\rm el}}\right).
+\end{eqnarray}
+Alternatively, the non-ideal corrections can be understood in the picture of the multi-component plasma fluid which will be discussed below.
+
+A physical charge neutral plasma component should contain at least three components: electrons, ions and the neutral elements, each with mass $m_s$, charge $q_s$, number density $n_s$ and velocity $\boldsymbol{v}_s$ where $s=e,i,n$ denotes the species (note $q_n=0$ and $q_e=-e$).
+The number density $n_s$ for each component is individually conserved
+\begin{eqnarray}
+	\frac{\partial n_s}{\partial t} + \nabla\cdot (n_s \boldsymbol{v}_s) = 0.
+\end{eqnarray}
+And their velocity evolves according to
+\begin{eqnarray}\label{eq:vel}
+		m_s n_s \left(\frac{\partial \boldsymbol{v}_s}{\partial t} + \boldsymbol{v}_s\cdot \nabla \boldsymbol{v}_s\right) = -\nabla P_s +q_s n_s \left(\boldsymbol{E} + \frac{ \boldsymbol{v}_s\times \boldsymbol{B}}{c}\right) + \sum\limits_{s'\neq s}\boldsymbol{F}_{s s'}
+\end{eqnarray}
+where $\boldsymbol{F}_{s s'}$ is the collisional friction force on $s$ due to $s'$.
+For electrons and ions, the inertia term on the left hand side can be neglected since the relevant length scale of fluid motion is much larger than the gyroradius, therefore the collisional friction they feel is balanced by the Lorentz force.
+Adding the equations together for electrons and ions we have
+\begin{eqnarray}\label{eq:lorentz-force}
+	\frac{\boldsymbol{j}\times\boldsymbol{B}}{c} + \sum\limits_s\boldsymbol{F}_{sn} = 0.
+\end{eqnarray}
+The velocity $\boldsymbol{v}$ in Equation \ref{eq:mhd-induction} should be understood as the velocity of the fluid which is essentially the center of mass velocity of the multi-component fluid element
+\begin{eqnarray}
+	\boldsymbol{v} = \frac{\sum\limits_s n_s m_s \boldsymbol{v}_s}{\sum\limits_s n_s m_s}.
+\end{eqnarray}
+Add Equation \ref{eq:vel} for the neutral element to Equation \ref{eq:lorentz-force}, and using $\rho = \sum\limits_s n_s m_s$, $\boldsymbol{j} = \sum\limits_s n_s q_s\boldsymbol{v}_s$, charge neutrality $\sum\limits_s n_s q_s = 0$ and Newton's third law $\boldsymbol{F}_{s s'}=-\boldsymbol{F}_{s' s}$, we can derive the equation for the evolution of $\boldsymbol{v}$
+\begin{eqnarray}
+	\rho \left(\frac{\partial \boldsymbol{v}}{\partial t} + \boldsymbol{v}\cdot \nabla \boldsymbol{v}\right) = -\nabla P +\frac{ \boldsymbol{j}\times \boldsymbol{B}}{c} 
+\end{eqnarray}
+which is the momentum equation of ideal MHD (Equation \ref{eq:mhd-momentum}).
+
+In case the ionization level of the plasma is low, we have $\boldsymbol{v}\approx \boldsymbol{v}_n$, and Equation \ref{eq:mhd-induction} also remains the same.
+To see the effect of $\boldsymbol{v}_s$ on Equation \ref{eq:mhd-induction}., we rewrite the equation as
+\begin{eqnarray}\label{eq:mhd-induction-multifluid}
+	\frac{\partial \boldsymbol{B}}{\partial t} = \nabla\times\left[(\boldsymbol{v}-\boldsymbol{v}_e)\times \boldsymbol{B} + (\boldsymbol{v}_e-\boldsymbol{v}_i)\times \boldsymbol{B} + (\boldsymbol{v}_i-\boldsymbol{v}_n)\times \boldsymbol{B} + \boldsymbol{v}_n\times\boldsymbol{B}\right].
+\end{eqnarray}
+We examine the terms on the right hand side of Equation \ref{eq:mhd-induction-multifluid} separately
+\begin{itemize}
+	\item $\boldsymbol{v}-\boldsymbol{v}_e$ corresponds to the Ohmic dissipation and is usually expressed as 
+\begin{eqnarray}
+	(\boldsymbol{v}-\boldsymbol{v}_e)\times \boldsymbol{B} = -\frac{c^2}{4\pi\sigma_{\rm el}}\nabla\times \boldsymbol{B}.
+\end{eqnarray}
+	
+	\item $\boldsymbol{v}_e-\boldsymbol{v}_i = -\frac{\boldsymbol{j}}{e n_e}\times \boldsymbol{B} $ is the Hall effect
+	\begin{eqnarray}
+		(\boldsymbol{v}_e-\boldsymbol{v}_i)\times \boldsymbol{B} = -\frac{c}{4\pi e n_e}(\nabla\times\boldsymbol{B})\times \boldsymbol{B}.
+	\end{eqnarray}
+	
+	\item $\boldsymbol{v}_i-\boldsymbol{v}_n$ corresponds to the velocity of ions due to the the collisions of ions off the neutral particles.
+	Equation \ref{eq:lorentz-force} gives
+	\begin{eqnarray}
+		\frac{\boldsymbol{j}\times\boldsymbol{B}}{c} = \boldsymbol{F}_{ni} + \boldsymbol{F}_{ne} = \frac{m_n n_n}{\tau_{ni}}(\boldsymbol{v}_i-\boldsymbol{v}_n) + \frac{m_n n_n}{\tau_{ne}}(\boldsymbol{v}_e-\boldsymbol{v}_n) 
+	\end{eqnarray}
+	where $\tau_{ss'}$ is the relaxation time for collisions between particles.
+	Since the electron mass is much smaller than the ion mass $\tau_{ne}\ll\tau_{ni}$, and we have 
+	\begin{eqnarray}
+		(\boldsymbol{v}_i-\boldsymbol{v}_n)\times \boldsymbol{B} = \frac{\tau_{ni}}{m_n n_n c}(\boldsymbol{j}\times\boldsymbol{B})\times\boldsymbol{B} = \frac{\tau_{ni}}{4\pi m_n n_n}\left[(\nabla\times\boldsymbol{B})\times\boldsymbol{B}\right]\times\boldsymbol{B}.
+	\end{eqnarray}
+	This term is called ambipolar diffusion, since electrons and ions with different changes behave differently when they are scattering off the neutral particles.
+
+\end{itemize}
+
+
+
+
+% Local Variables:
+% TeX-master: "../thesis"
+% zotero-collection: #("16" 0 2 (name "Thesis"))
+% End:

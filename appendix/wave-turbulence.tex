@@ -1,0 +1,268 @@
+\zotelo{../thesis.bib}
+\newcommand{\abs}[1]{\left|{ #1}\right |}
+
+\chapter{Wave Turbulence}
+\label{app:wave-turbulence}
+In the problem of wave turbulence, we are interested in the statistical properties of an ensemble of waves which interact nonlinearly.
+For a real wave $\psi(x,t)$ in a $d$-dimensional box of length $L$ with periodic boundary condition, its Fourier coefficient of $\psi$ is
+\begin{equation}
+	\hat{\psi}(k,t) = \frac{1}{L^d}\int \md x\; \psi(x,t)e^{-i k x}.
+\end{equation}
+In a finite box, the wavenumbers $k_m=2\pi m/L$ with only integer $m$ allowed are discrete. 
+The fact $\psi(x,t)$ is real gives $\hat{\psi}(k,t) = \hat{\psi}^*(-k,t)$.
+The wavefunction can be written in terms of amplitude $J_m$ and phases $\phi_m \equiv \exp(i\varphi_m)$ with phase angle $\varphi_m$
+%
+\begin{equation}
+	\hat{\psi}_m = \hat{\psi}(k_m,t) = \sqrt{J_m} {\phi_m}.
+\end{equation}
+%
+We adopt the random phase approximation where all phases $\phi_m$ and amplitudes $J_m$ are independent random variables, and the phases are uniformly distributed in the unit circle $S^1$ on the complex plane.
+
+The wave spectrum $n_m$ is defined as 
+\begin{equation}
+	n_m = \left(\frac{L}{2\pi}\right)^d\bracket{J_m},
+\end{equation}
+which is related to the two-point function of $\hat{\psi}$
+\begin{equation}
+	\bracket{\psi_k,\psi^*_{k'}} = n_k\delta(k-k')
+\end{equation}
+and the ensemble is average is take with respect to the joint probability density function of the phase and angle $P(J,\phi)$.
+The four point function is
+\begin{equation}
+	\bracket{\hat{\psi}_1\hat{\psi}_2\hat{\psi}^*_3\hat{\psi}^*_4} = \bracket{\sqrt{J_1 J_2 J_3 J_4}}_J\bracket{\phi_1\phi_2\phi^*_3\phi^*_4}_\phi.
+\end{equation}
+Since $\phi_m$ is uniformly distributed on $S^1$, so $\bracket{\phi_m}=\bracket{\phi^n_m}=0$. 
+In addition, each $\phi_m$ is independent, so the above average is non-zero, if all $\phi$'s can be paired with a $\phi^*$ with same $k$. 
+Therefore we have
+\begin{eqnarray}
+	\bracket{\hat{\psi}_1\hat{\psi}_2\hat{\psi}^*_3\hat{\psi}^*_4} &=& \bracket{J_1 J_2}(\delta_3^1\delta_4^2+\delta_4^1\delta_3^2-\delta_2^1\delta_3^1\delta_4^1)\nonumber\\
+	&=&	\bracket{J_1}\bracket{J_2}(\delta_3^1\delta_4^2-\delta_4^1\delta_3^2)-(\bracket{J_1^2}-2\bracket{J_1}^2)\delta_2^1\delta_3^1\delta_4^1.
+\end{eqnarray}
+where we ues the Kronecker delta
+\begin{equation}
+	\delta_2^1 = 1\; \mathrm{if}\; k_1=k_2,\; \delta_2^1 = 0\;\mathrm{otherwise}.
+\end{equation}
+
+In this chapter, we consider a simple nonlinear equation with three-wave interaction
+\begin{equation}\label{wave-equation}
+	\partial_t\hat{\psi_k}+i\omega_k\hat{\psi_k} = \sum_{1,2}V_{12k}\hat{\psi}_1\hat{\psi}_2 \delta_{12}^k,
+\end{equation}
+where $\delta_{12}^{k}$ is the Kronecker delta for $k_1+k_2$ and $k$.
+\begin{equation}
+	V_{12k}\equiv V(k_1+k_2-k)
+\end{equation}
+is the Fourier coefficient of a real function $V(x)$ at mode $k_1+k_2-k$ that characterizes the nonlinear interaction between two waves. 
+Using the interaction representation variable $b_k = \hat{\psi}_k e^{i\omega_k t}/\epsilon $, Equation~\ref{wave-equation} becomes
+\begin{equation}\label{wave-equation2}
+	\partial_t b_k = \epsilon \sum\limits_{1,2} V_{12k} b_1 b_2 \delta_{12}^k e^{i\omega_{12}^k t},
+\end{equation}
+where $\omega_{12}^k = \omega_k-\omega_1-\omega_2$.
+
+\section{Weak nonlinearity expansion}
+We will seek the solution to Equation~\ref{wave-equation2} in the form of a perturbative expansion with respect to some small parameter $\epsilon$,
+\begin{equation}
+	b_k = b_k^{(0)}+\epsilon b_k^{(1)} +\epsilon^2 b_k^{(2)}+\cdots.
+\end{equation}
+Initially, only waves of the lowest order are present $b_k^{(n)}=0$ for $n>0$.
+
+The linear time which is period of linear waves $\tau_L = 2\pi/\omega_k$ and the nonlinear timescale (which will be discussed later) is given by $\tau_{NL} = 2\pi/\epsilon^2\omega_k$.
+When the nonlinearity is week, energy is transferred to higher-order modes on timescale much longer than wave periods $\tau_{NL}\gg\tau_L$.
+In the regime of weak nonlinearity, we seek solutions on timescale $T$ lying in between $\tau_{L}\ll T\ll \tau_{NL}$. 
+For simplicity, we can take	$T\sim 2\pi/\epsilon \omega_k$.
+
+Expanding the Equation~\ref{wave-equation2} based on the order of $\epsilon$, we have, to the zeroth order 
+\begin{equation}
+	\dot{b}_k^{(0)} = 0.
+\end{equation}
+$b_k^{(0)} = b_k(0)$ is just the linear wave solution.
+
+Fir the first order equation, we have
+\begin{equation}
+	\dot{b}_k^{(1)} = \sum\limits_{1,2}V_{12k} b_{0}^{(0)}b_2^{(0)}\delta_{12}^k e^{i\omega_{12}^k t}.
+\end{equation}
+The solution is given by
+\begin{equation}\label{sol-1}
+	b_k^{(1)} = \sum\limits_{1,2}V_{12k} b_{1}^{(0)}b_2^{(0)}\delta_{12}^k \Delta_T(\omega_{12}^{k}),
+\end{equation}
+with
+\begin{equation}
+	\Delta_T(\omega_{12}^{k}) = \int\limits_0^T e^{i\omega_{12}^k t}=\frac{e^{i\omega_{12}^k T}-1}{i\omega_{12}^k}.
+\end{equation}
+And the second order equation gives
+\begin{equation}
+	\dot{b}_k^{(2)} = 2\sum\limits_{1,2}V_{12k} b_{1}^{(1)}b_2^{(0)}\delta_{12}^k e^{i\omega_{12}^k t}.
+\end{equation}
+The factor $2$ to the front of right hand side comes from the symmetry of changing lower index $1\rightarrow 2$.
+Substituting Equation~\ref{sol-1} for $b_1^{(1)}$, we have
+\begin{equation}
+	\dot{b}_k^{(2)} = 2\sum\limits_{1,2}V_{12k} b_{2}^{(0)}b_3^{(0)}b_4^{(0)}\delta_{12}^k\delta_{34}^1 \Delta_t(\omega_{34}^{1})e^{i\omega_{12}^k t}.
+\end{equation}
+And the solution for $b_k^{(2)}$ is
+\begin{equation}\label{sol-2}
+	b_k^{(2)} = 2\sum\limits_{1,2}V_{12k}V_{341} b_{2}^{(0)}b_3^{(0)}b_4^{(0)}\delta_{12}^k\delta_{34}^1 E(\omega_{34}^{1},\omega_{12}^k),
+\end{equation}
+with 
+\begin{equation}
+	E(\omega_{34}^{1},\omega_{12}^k) = \int\limits_0^T \Delta_t(\omega_{34}^{1})e^{i\omega_{12}^k t}.
+\end{equation}
+
+\section{Generating function}
+%
+The N-mode generating function is defined as
+\begin{equation}
+	\mathcal{G}(\lambda,\mu)=\bracket{\prod \exp\left[\left(\frac{L}{2\pi}\right)^d J_m\lambda_m \right] \phi_m^{\mu_m}  } = \bracket{\prod \exp\left[\left(\frac{L}{2\pi}\right)^d J_m\lambda_m \right] e^{i\mu_m\varphi_m}  }
+\end{equation}
+which is the Laplace transformation of $P$ in $J$ and the Fourier transformation of $P$ in $\varphi$.
+
+The single mode generating function of the amplitude is defined as
+\begin{equation}
+	G_k(\Lambda_k,T)\equiv \mathcal{G}(\lambda,\mu=0)= \bracket{\exp\left[\Lambda_k |b_k(T)|^2 \right]}
+\end{equation}
+where $\Lambda_k \equiv\lambda_k (L/2\pi)^d$.
+Expanding the generating function to order $\mathcal{O}(\epsilon^2)$, we have
+\begin{eqnarray}\label{gf}
+	&& G_k(\Lambda_k,T)-G_{k}(\Lambda_k,0) \nonumber\\
+	&=&\epsilon \bracket{ e^{\Lambda_k J_k^{(0)}} \Lambda_k \left(b_k^{(0)}b_k^{*(1)}+b_k^{(1)}b_k^{*(0)} \right)}\nonumber\\
+	&&+\epsilon^2\bracket{ e^{\Lambda_k J_k^{(0)}} \Lambda_k \left(|{b_k^{(1)}}|^2+b_k^{(0)}b_k^{*(2)}+b_k^{(2)}b_k^{*(0)}\right)}\nonumber\\
+	&&+\epsilon^2\bracket{ e^{\Lambda_k J_k^{(0)}} \frac{ \Lambda_k^2}{2} \left(b_k^{(0)}b_k^{*(1)}+b_k^{(1)}b_k^{*(0)} \right)^2}.
+\end{eqnarray}
+The average is taken over both amplitude $J$ and phase $\phi$.
+Since the amplitude and the phase are independent, we can first calculate the average over phase for all terms in the bracket after the exponential.
+
+For the order $\epsilon$ term $\bracket{b_k^{(0)}b_k^{*(1)}+b_k^{(1)}b_k^{*(0)}}_\phi$, we have
+\begin{eqnarray}
+	&&\bracket{b_k^{(0)}b_k^{*(1)}+b_k^{(1)}b_k^{*(0)}}_\phi \nonumber \\
+	&=&2\Re\sum\limits_{1,2}V_{12k}V^*_{34k}\bracket{b_k^{(0)}b_1^{*(0)}b_2^{*(0)}}_\phi \delta_{12}^k \Delta_T(\omega_{12}^{k})\nonumber\\
+	&=&0.
+\end{eqnarray}
+This term vanishes because there are odd numbers of waves in the bracket to be averaged over the phase.
+Hence, the difference of generating function is of the order $\mathcal{O}(\epsilon^2)$.
+
+The first term of second order in the third line of Equation~\ref{gf} gives
+\begin{eqnarray}
+		\bracket{|b_k^{(1)}|^2}_\phi &=& \sum\limits_{1,2,3,4}V_{12k}V^*_{34k}\bracket{b_1^{(0)}b_2^{(0)}b_3^{*(0)}b_4^{*(0)}}_\phi \delta_{12}^k\delta_{34}^k\Delta_T(\omega_{12}^{k})\Delta^*_T(\omega_{34}^{k})\nonumber\\
+		&=& 2\sum\limits_{1,2}|V_{12k}|^2 J_{1}^{(0)}J_{2}^{(0)}\delta_{12}^k|\Delta_T(\omega_{12}^{k})|^2.
+\end{eqnarray}
+
+The rest terms of second order in the third line of Equation~\ref{gf} give
+\begin{eqnarray}
+		&&\bracket{b_k^{(0)}b_k^{*(2)}+b_k^{(2)}b_k^{*(0)}}_\phi \\
+		&=& 2 \Re \bracket{b_k^{*(0)}b_k^{(2)}}_\phi\nonumber \\
+		&=&4\Re \sum\limits_{1,2,3,4}V_{12k}V_{341}\bracket{b_k^{*(0)}b_2^{(0)}b_3^{(0)}b_4^{(0)}}_\phi \delta_{12}^k\delta_{34}^1 E(\omega_{34}^{1},\omega_{12}^k)\nonumber\\
+		&=&8\Re \sum\limits_{1,2}V_{12k}V_{k-21}J_k^{(0)}J_2^{(0)}\delta_{12}^k E(\omega_{k}^{12},\omega_{12}^k).
+\end{eqnarray}
+Using the fact that $V(x)$ is real $V_{k-21}= V^*_{12k}$ and $ \omega_{k}^{12}= -\omega_{12}^{k}$
+\begin{eqnarray}
+	\bracket{b_k^{(0)}b_k^{*(2)}+b_k^{(2)}b_k^{*(0)}}_\phi =8\sum\limits_{1,2}|V_{12k}|^2 J_k^{(0)}J_2^{(0)}\delta_{12}^k \Re\left[E(-\omega_{12}^k,\omega_{12}^k)\right].
+\end{eqnarray}
+
+Terms of second order in the last line of Equation~\ref{gf} give
+\begin{eqnarray}
+		\bracket{\left(b_k^{(0)}b_k^{*(1)}+b_k^{(1)}b_k^{*(0)}\right)^2}_\phi = 2 \Re \bracket{\left(b_k^{*(0)}b_k^{(1)}\right)^2}_\phi +2 J_k^{(0)}\bracket{|b_k^{(1)}|^2}_\phi.
+\end{eqnarray}
+The first part will vanish, because after inserting the solution for $b_k^{(1)}$, the average in the sum is
+$\bracket{\left(b_k^{(0)}b_1^{*(0)}b_2^{*(0)}\right)^2}_\phi$. There will always be a $b_m^{(0)}$ or $b_m^{*(0)}$ pairs with itself and gives zero.
+
+Therefore, we have the change of generating function
+\begin{eqnarray}
+	&& G_k(\Lambda_k,T)-G_k(\Lambda_k,0) \nonumber\\
+	&=&\epsilon^2\bracket{ e^{\Lambda_k J_k^{(0)}} \left(\Lambda_k +\Lambda_k J_k^{(0)}\right)\bracket{|b_k^{(1)}|^2}_\phi}_J +\epsilon^2\bracket{ e^{\Lambda_k J_k^{(0)}} \Lambda_k \bracket{b_k^{(0)}b_k^{*(2)}+b_k^{(2)}b_k^{*(0)}}_\phi}_J\nonumber \\
+	&=&2\epsilon^2 \sum\limits_{1,2}|V_{12k}|^2 \delta_{12}^k|\Delta_T(\omega_{12}^{k})|^2 \bracket{\left( \Lambda_k+\Lambda_k J_k\right)e^{\Lambda_k J_k^{(0)}}J_1 J_2}_J\nonumber\\
+	&&+8\epsilon^2 \sum\limits_{1,2}|V_{12k}|^2 \delta_{12}^k \Re\left[E(-\omega_{12}^k,\omega_{12}^k)\right]\bracket{\Lambda_k e^{\Lambda_k J_k^{(0)}}J_k J_2}_J.
+\end{eqnarray}
+
+To take the average over amplitude, we assume that $k_1\neq k_2\neq k$.
+Therefore the the average in the above expression can be factored as products of $\bracket{J_i}$ and $\bracket{J_k e^{\Lambda_k J_k}}$.
+Using the facts that
+\begin{eqnarray}
+	J_k &=& \left(\frac{2\pi}{L}\right)^d n_k,\nonumber\\
+	\bracket{e^{\Lambda_k J_k}} &=& G_k,\nonumber\\
+	\bracket{J_k e^{\Lambda_k J_k}} &=& \frac{\partial}{\partial \Lambda_k} G_k,
+\end{eqnarray}
+we have
+\begin{eqnarray}
+	&& G_k(\Lambda_k,T)-G_k(\Lambda_k,0) \nonumber\\
+	&=&\left(\frac{2\pi}{L}\right)^d 2\epsilon^2 \sum\limits_{1,2}|V_{12k}|^2 \delta_{12}^k|\Delta_T(\omega_{12}^{k})|^2 \left( \lambda_k G_k+\lambda_k \frac{\partial}{\partial \lambda_k}G_k\right) n_1 n_2\nonumber\\
+	&&+\left(\frac{2\pi}{L}\right)^d 8\sum\limits_{1,2}|V_{12k}|^2 \delta_{12}^k \Re\left[E(-\omega_{12}^k,\omega_{12}^k)\right] n_2\frac{\partial}{\partial \lambda_k}G_k.
+\end{eqnarray}
+
+In the following, we are going to take two limits: 
+
+1) the box size goes to infinity, and the discrete spectrum become continuous.
+This is easily done by replacing the sum with integral and Kronecker delta with the Dirac delta.
+\begin{eqnarray}
+	\sum\limits_{1,2}&\rightarrow & \left(\frac{L}{2\pi}\right) ^{2d}\int\md k_1\md k_2, \nonumber\\
+	\delta_{12}^k &= & \left(\frac{2\pi}{L}\right) ^{d}\delta(k_1+k_2-k).
+\end{eqnarray}
+
+2) the nonlinear parameter $\epsilon$ goes to zero.
+As $\epsilon\rightarrow 0$, $T\sim 2\pi/\epsilon\omega_k\rightarrow\infty$. 
+\begin{eqnarray}
+	|\Delta_T(x)|^2 &=& \frac{|e^{ixT/2}-e^{-ixT/2}|^2}{x^2} = \frac{2\sin^2(xT/2)}{x^2}\rightarrow 2\pi T\delta(x),\\
+	E(-x,x) &=& \int\limits_0^T \md t\;\frac{1-e^{ixt}}{-ix} = \frac{iT}{x}+\frac{1-e^{ixT}}{x^2},\\
+	\Re E(-x,x) &=&\frac{2\sin^2(xT/2)}{x^2}\rightarrow \pi T \delta(x).
+\end{eqnarray}
+
+Therefore, we have
+\begin{eqnarray}
+	&& \frac{G_k(\Lambda_k,T)-G_k(\Lambda_k,0)}{T} \nonumber\\
+	&=& 4\pi\epsilon^2  \int\md k_1\md k_2\;\abs{V_{12k}}^2 \delta_{12}^k\delta(\omega_{12}^{k}) \left( \lambda_k G_k+\lambda_k \frac{\partial}{\partial \lambda_k}G_k\right) n_1 n_2\nonumber\\
+	&&+ 8\pi\epsilon^2\int\md k_1\md k_2\;\abs{V_{12k}}^2 \delta_{12}^k \delta(\omega_{12}^{k}) n_2\frac{\partial}{\partial \lambda_k}G_k.
+\end{eqnarray}
+We can replace the first line with the time derivative $\dot{G_k}$ to get time evolution of $G_k$.
+\begin{equation}
+	\dot{G}_k = \lambda_k \eta_k G_k+(\lambda_k^2 \eta_k + \lambda_k\gamma_k)\frac{\partial}{\partial \lambda_k}G_k,
+\end{equation}
+with
+\begin{equation}
+	\eta_k = 4\pi\epsilon^2  \int\md k_1\md k_2\;\abs{V_{12k}}^2 \delta_{12}^k\delta(\omega_{12}^{k}) n_1 n_2
+\end{equation}
+and 
+\begin{equation}
+	\gamma_k = 8\pi\epsilon^2\int\md k_1\md k_2\;\abs{V_{12k}}^2 \delta_{12}^k \delta(\omega_{12}^{k})n_2.
+\end{equation}
+
+\section{Kinetic equation}
+
+The inverse Laplace transform of $G_k$ gives the probability distribution function $P(J)$
+\begin{equation}
+	P(J_k) = \int\limits_{\zeta-i\infty}^{\zeta+i\infty}\md \lambda G(\lambda)e^{-\lambda_k J_k}.
+\end{equation}
+Therefore,
+\begin{equation}
+	\dot{P}(J_k) =\frac{\partial}{\partial J_k}\left( J_k \eta_k\frac{\partial}{\partial J_k}P + \gamma_k J_k P \right).
+\end{equation}
+From the definition, wave spectrum is the first moment of the probability distribution function $P(J)$
+\begin{equation}
+	n_k = \left(\frac{L}{2\pi} \right)^d\int \md J_k \; J_k P(J_k).
+\end{equation}
+The time evolution of wave spectrum is
+\begin{eqnarray}\label{kinetic}
+	\dot{n}_k & = & \left(\frac{L}{2\pi}\right)^d\int \md J_k \; J_k \frac{\partial}{\partial J_k} \left( J_k \eta_k\frac{\partial}{\partial J_k}P + \gamma_k J_k P \right)\nonumber\\
+	&=& - \left(\frac{L}{2\pi} \right)^d\int \md J_k\; \left( J_k \eta_k\frac{\partial}{\partial J_k}P + \gamma_k J_k P \right)\nonumber\\
+	&=&\eta_k-\gamma_k n_k.
+\end{eqnarray}
+
+Equation~\ref{kinetic} is called the kinetic equation, it describes the evolution of wave spectrum due to nonlinear interactions.
+We can also now check the nonlinear time scale $\tau_{NL}$. 
+The time evolution for $\dot{n}_k$ starts from order $\epsilon^2$. 
+The nonlinearity induces significant changes to the wave spectrum on the time scale $1/\epsilon^2$, which justifies our use of nonlinear time scale.
+In the weak nonlinearity limit, the change of wave spectrum is completely due to the resonant three-wave interactions where $\omega_{12}^k= \omega_k-\omega_1-\omega_2=0$. 
+In most cases, energy spectrum is proportional to the wave spectrum, so energy also transfers only through resonant interactions.
+Non-resonant interaction leads to fast oscillation on the short time scale. 
+Actually, the non-resonant interaction dominates the wave evolution on the short time scale. 
+However, this fast oscillation does not accumulate, and the net effect will be averaged to zero after long time. 
+We neglect the oscillation on the short scale, but focus on the long time evolution of the system that we compare the difference of $G_k$ on the long time scale $T\ll\tau_L$.
+Resonant interactions, on the other hand, accumulates. 
+Changes of wave spectrum on the time scale much longer than the wave period are purely due to resonant interactions.
+
+The integration of resonant interactions involves a delta function $\delta(\omega_{12}^k)$. However, nonlinearity can broaden the resonance line in the $k$ space. The reason is that true dispersion relation $\omega(k) = \omega_L(k) + \Delta \omega$, is different from the linear one. 
+The modification term can depend on other factors, e.g. the amplitude of interacting waves. Resonant interactions can be satisfied when $\abs{\omega_{12}^k}\leq \Gamma$, corresponding to a finite width $\Gamma\sim \gamma_k$ in the frequency space.
+
+
+
+
+% Local Variables:
+% TeX-master: "../thesis"
+% zotero-collection: #("16" 0 2 (name "Thesis"))
+% End:
