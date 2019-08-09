@@ -28,7 +28,7 @@
 
 \chapter[Magnetar Outbursts from Avalanche of Hall Waves]{Magnetar Outbursts from Avalanche of Hall Waves}
 \label{chap:hall}
-The magnetic field in the crust evolves due to a combined action of the Hall drift and ohmic dissipation \citep{1992ApJ...395..250G, 2004MNRAS.347.1273H,2013MNRAS.434..123V}. 
+The magnetic field in the crust evolves due to the combined action of the Hall drift and ohmic dissipation \citep{1992ApJ...395..250G, 2004MNRAS.347.1273H,2013MNRAS.434..123V}. 
 The multi-dimensional dynamics of the Hall drift in the neutron-star crust is complex and not fully understood, although significant new insights have come from recent numerical experiments \citep{2012MNRAS.421.2722K, 2013MNRAS.434.2480G,2014MNRAS.438.1618G,2015MNRAS.446.1121G, 2015PhRvL.114s1101W}. It is generally thought to proceed on long timescales of $\sim 10^3$ years in the deep crust.
 
 The gradual evolution of the magnetic field due to Hall drift is punctuated by shearing motions of the crust that relieve magnetic stresses. 
@@ -44,7 +44,7 @@ We build a detailed one-dimensional model which follows the following processes:
 	\item Rapid plastic motions driven by super-critical magnetic stresses,
 and the associated emission of short Hall waves.
 	\item Transport of the generated plastic heat and neutrino cooling of the crust. This allows us to find the thermal flux emitted from the stellar surface.
-	\item Surface shear resulting from the crustal avalanches, and the associated Poynting flux into the magnetosphere. This flux can feed a magnetospheric activity.
+	\item Surface shear resulting from the crustal avalanches, and the associated Poynting flux into the magnetosphere. This flux can feed magnetospheric activity.
 
 \end{enumerate} 
 
@@ -65,7 +65,7 @@ ohmic diffusion, with the diffusivity given by
 \eta={c^2\over 4\pi \sigma_{\rm el}}, 
 \end{equation}
 where
-$\sigma_{\rm el}$ is the electrical conductivity of the crust. The electron velocity consists of three components: \begin{equation}
+$\sigma_{\rm el}$ is the electrical conductivity of the crust. The electron fluid velocity consists of three components: \begin{equation}
 \boldsymbol{v}=\boldsymbol{v}_{\rm H}+\dot{\boldsymbol{\xi}}_{\rm ela}+\dot{\boldsymbol{\xi}}_{\rm pl}.
 \label{velectron}
 \end{equation}
@@ -73,7 +73,7 @@ $\sigma_{\rm el}$ is the electrical conductivity of the crust. The electron velo
  relative to the ions and is related to the 
  electric current density $\boldsymbol{j}$,
 \beq
-\boldsymbol{v}_{H} = -\frac{\boldsymbol{j}}{n_e e}=-{c\over 4\pi n_e e}\nabla\times\boldsymbol{\mathcal{B}},
+\boldsymbol{v}_{H} = -\frac{\boldsymbol{j}}{n_e e}=-{c\over 4\pi n_e e}\nabla\times\boldsymbol{B},
 \eeq
 where $n_e$ is the electron density and 
 $-e$ is the electron charge. 
@@ -127,7 +127,7 @@ the early life of the
 magnetar or rapid ambipolar diffusion in the hot magnetar core 
 \citep{1992ApJ...395..250G,2016ApJ...833..261B} 
 can create a current sheet at the core-crust interface. 
-Configurations with the current sheet at the interface was considered by \citet{2013PhRvL.110g1101L,2015MNRAS.453..671G} in the context of superconducting stars, and also appeared in some simulations of the core field expulsion \citep{2016MNRAS.456.4461E}.
+Configurations with the current sheet at the interface were considered by \citet{2013PhRvL.110g1101L} and \citet{2015MNRAS.453..671G} in the context of superconducting stars, and also appeared in some simulations of the core field expulsion \citep{2016MNRAS.456.4461E}.
 This localized horizontal current drags the field lines and launches 
 a train of Hall waves that propagate toward the top of the crust.
 More importantly, local sudden mechanical failures in the crust can induce a
@@ -209,7 +209,7 @@ self-similar solution shown in Figure~\ref{fresnel1}.
 
 
 The same problem with a realistic density profile $\rho(z)$ and electric conductivity 
-$\gamma(z)$ can be solved numerically using \Eq~(\ref{hall}) (neglecting crustal 
+$\sigma_{\rm el}(z)$ can be solved numerically using \Eq~(\ref{hall}) (neglecting crustal 
 deformation $\xi$). The finite resistivity leads to efficient damping of the fast Hall waves with 
 high wavenumbers, limiting the speed of the wavefront launched by the jump of $B_x$.
 Figure~\ref{cartoon} 
@@ -226,7 +226,7 @@ trace the crustal Hall waves excited at $z<z_0$ and $z>z_0$.
 Hall evolution can generate strong shear stresses $BB_z/4\pi$, where 
 $B$ is the horizontal magnetic field.
 As long as the external $B=0$ at the top of the crust (this assumption will be relaxed in 
-Section \ref{twist}) the stress balance is only possible 
+Section \ref{twist}), stress balance is only possible 
 if the entire stress $BB_z/4\pi$ is offset by the elastic stress of the ion lattice,
 \beq
 \label{eq:stress}
@@ -265,17 +265,10 @@ They propose that $\sigcr$ depends on temperature as
 \eeq
 where $\Gamma=Z^2 e^2/akT$ is the Coulomb coupling parameter for ions with charge
 number $Z$ and separation $a=(3/4\pi n_{\rm i})^{1/3}$ ($n_{\rm i}$ is the ion number density.)
-These authors studied rapidly shearing boxes of $\sim 100\times100\times 100$ lattice sites, 
-and found that after the shear stress reaches $\sim 0.1\mu$ the failure develops with the 
-stress reduced by an order of magnitude.
+These authors studied rapidly shearing boxes of $\sim 100\times100\times 100$ lattice sites, and found that after the shear stress reaches $\sim 0.1\mu$ the failure develops, with the stress reduced by an order of magnitude.
 When the shear ends, the crystal strength must eventually heal.
-Our model below will assume a similar behavior of the elastic stress in macroscopic
-failure events, although the extrapolation of the small-scale rapid-shear experiments 
-to slowly fostered macroscopic failures may not be reliable.
-Note also that two-dimensional shear failures, common in the earth crust as sources of 
-earthquakes, are strongly suppressed in a magnetar by magnetic tension 
-\citep{2012MNRAS.427.1574L}. The failure may be described as 
-a plastic flow \citep{2014ApJ...794L..24B}, see also \citet{2003ApJ...595..342J}.
+Our model below will assume a similar behavior of the elastic stress in macroscopic failure events, although the extrapolation of the small-scale rapid-shear experiments to slowly fostered macroscopic failures may not be reliable.
+Note also that two-dimensional shear failures, common in the earth crust as sources of earthquakes, are strongly suppressed in a magnetar by magnetic tension \citep{2012MNRAS.427.1574L}. The failure may be described as a plastic flow \citep{2014ApJ...794L..24B}, see also \citet{2003ApJ...595..342J}.
 
 The critical stress $\sigcr$ defines the critical magnetic field $\Bcr$,
 \beq
@@ -287,7 +280,8 @@ assume that once the failure
 is initiated the critical stress  drops
 to $\sigma_{\rm cr}^{\rm new}=0.1\sigma_{\rm cr}$. 
 Correspondingly, $\Bcr^{\rm new}=0.1\Bcr$ during the plastic flow.
-This prescription makes sure that the horizontal magnetic field evolves to the lower value $\Bcr^{\rm new}$ in a visco-elastic manner. Once the elastic stress reaches $\sigma_{\rm cr}^{\rm new}$ we assume that the lattice reforms and the visco-elastic evolution stops.
+This prescription makes sure that the horizontal magnetic field evolves to the lower value $\Bcr^{\rm new}$ in a visco-elastic manner. 
+Once the elastic stress reaches $\sigma_{\rm cr}^{\rm new}$ we assume that the lattice reforms and the visco-elastic evolution stops.
 Our results are not sensitive to the exact choice of $\sigma_{\rm cr}$.
 
 Finally, we specify the plastic flow rate (the last term in 
@@ -359,7 +353,7 @@ In the plastically flowing region $z-vt<z_\star-vt_\star$,
 \eeq
 Then one finds the solution,
 \beq\label{tpw}
-B = (B_0-B_1)\exp\left[\frac{\alpha}{v}(w-w_\star)\right]+B_0,  \quad w<w_\star,
+B = (B_0-B_1)\exp\left[\frac{\alpha}{v}(w-w_\star)\right]+B_1,  \quad w<w_\star,
 \eeq 
 which describes the plastic relaxation of $B_0$ to a weaker field $|B_1|=\Bcr^{\rm new}$.
 One can see that the characteristic thickness of the wave front is $v/\alpha$.
@@ -475,7 +469,7 @@ flow triggered by this peak occurs promptly and in a narrow region.\footnote{Pla
      away from the peak. The model with switched off heat diffusion does not generate TPWs; 
      instead, it generates a cascade of very thin plastic flows (limited by the grid resolution of
      $2$~cm), which merge with time. Thus, the behavior on the smallest scales cannot be 
-     resolved in the simulation presented in Figure~4. However, the small-scale details weakly 
+     resolved in the simulation presented in Figure~\ref{failure}. However, the small-scale details weakly 
      affect the behavior
      of the front on scales well above the grid scale --- it turns out similar to 
      a more complete simulation with included heat diffusion.
@@ -544,7 +538,7 @@ It is controlled by two factors:
 For instance, in the axisymmetric geometry $B_s\neq 0$ would be a toroidal field which requires a poloidal magnetospheric current \citep{2002ApJ...574..332T}. 
 The current is sustained through $e^\pm$ discharge with a threshold voltage that regulates the damping time of the external twist to $\sim 1$~yr \citep{2007ApJ...657..967B}.
 
-The pumping of $B_s$ by crustal motions can be implemented in our one-dimensional model as shown in Figure \ref{fig1}.
+The pumping of $B_s$ by crustal motions can be implemented in our one-dimensional model as shown in Figure \ref{fig:twist}.
 We consider a magnetosphere with a constant vertical magnetic field $B_z$ and a constant horizontal field $B_s$ that serves as a proxy for the twist component in three dimensions.
 The pumping of $B_s$ is caused by the motion of magnetic field lines at the crust surface. 
 This motion can be related to the evolution of $B(z,t)$ inside the crust by integrating \Eq~(\ref{vel}) from the bottom to the top of the crust,
@@ -567,7 +561,7 @@ The rate of pumping $B_s$ is proportional to $v_s$, and the evolution equation f
 \beq\label{bs}
 \dot{B}_s=-B_z\frac{v_s}{L}-\frac{B_s}{\tau_{\rm damp}}.
 \eeq
-Here $L$ represents the length of the magnetospheric field lines (Figure~\ref{fig1}) and $\tau_{\rm damp}$ is the damping timescale. 
+Here $L$ represents the length of the magnetospheric field lines (Figure~\ref{fig:twist}) and $\tau_{\rm damp}$ is the damping timescale. 
 In a complete model, the value of $\tau_{\rm damp}$ would depend on the voltage of $e^\pm$ discharge in the magnetosphere and the geometry of the twisted bundle of field lines \citep{2009ApJ...703.1044B}.  
 In our simplified model we fix $\tau_{\rm damp}=1$~yr.
 
@@ -594,7 +588,7 @@ and creates $B_s$.
 Red dashed and solid lines are the magnetic field line before and after 
 the plastic deformation. 
 }
-\label{fig1}
+\label{fig:twist}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -613,7 +607,7 @@ It takes into account the plastic heating (\Eq~\ref{qpl}), the ohmic heating $q_
 
 The coupled evolution of $B(z,t)$ and $T(z,t)$ in the crust, and $B_s(t)$ at the surface, is followed by solving Equations~(\ref{fulleqn}), (\ref{heat}), (\ref{vsurf}), and (\ref{bs}); \Eq~(\ref{plasticprescription1}) is used where plastic flows occur.
 
-While our one-dimensional model can only approximate the behaviour of a real magnetar, it allows one to use a realistic vertical profile for all of the important physical parameters of the crust.
+While our one-dimensional model can only approximate the behavior of a real magnetar, it allows one to use a realistic vertical profile for all of the important physical parameters of the crust.
 We use the BSK20 model provided by \citet{2013A&A...560A..48P} to compute the density $\rho$, electron number density $n_e$, nuclear charge $Z$ and mass $A$ as a function of depth $z$. 
 The mass  of the neutron star is chosen to be $1.4M_{\odot}$, for which the model predicts the radius of  11.7~km.
 The shear modulus $\mu$ is calculated using the fitting formula provided by \citet{2005ApJ...634L.153P} and \citet{2007MNRAS.375..261S} for low and high densities. 
@@ -666,7 +660,7 @@ The energy conservation is better than 1\% during the whole simulation for Hall 
 
 
 When no plastic failure is triggered, the crust is only heated by ohmic dissipation.
-Its effect on temperature is however small, $\Delta T<10^7$~K. When a plastic failure occurs, the local plastic heating greatly exceeds the ohmic heating. 
+However, its effect on temperature is small, $\Delta T<10^7$~K. When a plastic failure occurs, the local plastic heating greatly exceeds the ohmic heating. 
 Therefore, we neglect the contribution of ohmic heating in the thermal evolution equation at all times. 
 However, ohmic damping is taken into account in the Hall evolution equation for the magnetic field, where its effect is more significant.
 
@@ -683,14 +677,14 @@ The dynamics of this fast process is not resolved in our simulations, instead we
 \caption[Snapshots of
 the magnetic field evolution]{Snapshots of the magnetic field evolution, showing how the horizontal magnetic field $B$ gradually fills the crust from its lower boundary at $z\approx 1$~km. 
 $\Bcr$ is calculated at the steady-state temperature profile that corresponds to the surface temperature of $2\times 10^{6}$~K.}
-\label{fig2}
+\label{hall_evol}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Results}
 
 
-Figure~\ref{fig2} shows the initial Hall evolution, which gradually fills the crust with a horizontal magnetic field. 
+Figure~\ref{hall_evol} shows the initial Hall evolution, which gradually fills the crust with a horizontal magnetic field. 
 The horizontal axis shows the depth of the crust. The neutron star surface is to the left and core-crust interface is on the right where Hall waves are launched.
 Solid curves show $|\tilde{B}|=|B-B_s|$ vs. depth $z$. 
 $B_s\neq 0$ corresponds to the external magnetospheric twist; it is negligible at most times, except when the magnetosphere is quickly twisted by the plastic 
@@ -784,7 +778,7 @@ This time, $\tilde{B}$ closely approached $\Bcr$ in a broader range of depths, a
 It travels much faster and a longer distance compared with the Hall-mediated avalanche in Figure~\ref{sp2}. 
 The temperature is higher and there is a strong temperature gradient across the wave front, which sustains its propagation.
 
-Thermoplastic wave is a fast mode of failure propagation compared with the Hall-mediated avalanche; in this example its duration is only 0.02 year ($7\times 10^5$~s). 
+The thermoplastic wave is a fast mode of failure propagation compared with the Hall-mediated avalanche; in this example its duration is only 0.02 year ($7\times 10^5$~s). 
 It produces fast and strong heating of the crust and twisting of the external magnetosphere (Figure~\ref{figz1}). 
 However, the resulting radiation flux from the stellar surface is not much higher than in Figure~\ref{figz2}.
 This is because heat is deposited deeper in the crust, and a larger fraction of the heat is conducted into the core and lost to neutrinos.
@@ -842,7 +836,7 @@ It is through these two channels that the outburst produces the observable X-ray
 
 
 Hall evolution of the magnetic field provides a robust mechanism for growing 
-magnetic stress in the solid crust of a magnetar, and yielding to theses stresses results in mechanical heating of the crust. 
+magnetic stress in the solid crust of a magnetar, and yielding to these stresses results in mechanical heating of the crust. 
 \citet{2016ApJ...833..261B} showed that heating from internally fostered crustal failures obeys strong constraints, which prevent it from sustaining the observed high temperatures of persistently luminous magnetars. 
 In agreement with these constraints, our results do not show a strong persistent heating of magnetars. 
 However, the described mechanism of activity driven by Hall drift can have significant observational implications. 

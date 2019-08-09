@@ -14,7 +14,8 @@ Secondly, \citet{2015ApJ...815...25L} showed that \alfven waves bouncing in the 
 
 The theory of turbulent cascades has a long history. The MHD cascade is different from the hydrodynamic cascade where energy transfer is mediated by interacting vortices. The difference is seen already in the simplest, incompressible, non-relativistic MHD, where only \alfven waves are present. In the case of weak turbulence (meaning that the time for energy transfer across spatial scales is longer than the wave period),
 the three-wave interaction is prohibited by kinetic constraints \citep{1994ApJ...432..612S}. 
-Then nonlinear interactions are dominated by the four-wave interactions among \alfven waves and give rise to the anisotropic energy cascade in the direction perpendicular to the background field. For strong turbulence, a $k_\perp^{-5/3}$ spectrum was predicted from detailed balance \citep{1995ApJ...438..763G}.
+Then nonlinear interactions are dominated by the four-wave interactions among \alfven waves and give rise to the anisotropic energy cascade in the direction perpendicular to the background field. 
+For strong turbulence, a $k_\perp^{-5/3}$ power spectrum was predicted from detailed balance \citep{1995ApJ...438..763G}, and numerical simulations showed a somewhat shallower spectrum consistent with $k_\perp^{-3/2}$ \citep{2001ApJ...554.1175M,2008PhRvE..77c6403M,2012PhPl...19e5902M}.
 
 More work was done later to include compressive modes -- the fast and slow magnetosonic waves.
 Using the random phase approximation \citet{2001JETP...93.1052K} found a weak-turbulence spectrum $k_{\perp}^{-2}$.
@@ -34,9 +35,9 @@ We utilize a high-order conservative finite differencing scheme to evolve the FF
 
 We will outline our numerical scheme and discuss energy dissipation channels it admits and present 2D and 3D numerical results for \alfven wave turbulence driven by colliding wave packets. 
 We will show that FFE simulations can badly over-predict the energy dissipation rate, as the result of a commonly employed technique for maintaining magnetic dominance ($E < B$) and discuss our results in the context of the fireball model for magnetar giant flares. 
-Throughout this chapter we utilize units in which speeds are measured in units of the speed of light $c$, and electric ($\boldsymbol{E}$) and magnetic ($\boldsymbol{B}$) field values are normalized by $\sqrt{4 \pi}$.
+Throughout this chapter we utilize units in which speeds are measured in units of the speed of light $c$, charge and current are normalized by $1/\sqrt{4\pi}$ and electric ($\boldsymbol{E}$) and magnetic ($\boldsymbol{B}$) field values are normalized by $\sqrt{4 \pi}$.
 
-\section{Numerical setup}
+\section{Numerical setup}\label{sec:setup}
 \subsection{Computational setting}
 %
 We perform numerical simulations in a fully periodic domain with uniform guide magnetic field aligned with the $z$-axis, $B_z=1$.
@@ -163,7 +164,7 @@ Channel (iii) does not in general become small as the grid resolution increases.
 As mentioned in Section~\ref{magnetic-dominance}, this dissipation may be artificially strong.
 Therefore, we consider our measurements of the energy dissipation rate to be reliable only when dissipation is not dominated by this effect.
 
-Channel (iv), energy removal by grid heating, may or may not ``converge away'' with increasing resolution. For example, the FFE wave solutions discussed in Section \ref{waves} evolve without any significant grid heating, provided their wavelength is well resolved. Generally, the rate of grid heating of isolated waves will depend on the numerical resolution. In contrast, non-linear numerical solutions can exhibit significant energy loss over time, at a rate that becomes independent of grid resolution. Such behavior usually reflects the presence of a forward energy cascade, in which the rate of high frequency wave damping is determined by the rate of energy transfer into high frequency modes by numerically resolved non-linear interactions. In such cases, grid heating is expected to capture the true dissipation rate.
+Channel (iv), energy removal by grid heating, may or may not ``converge away'' with increasing resolution. For example, the FFE wave solutions discussed in Section \ref{sec:ffe} evolve without any significant grid heating, provided their wavelength is well resolved. Generally, the rate of grid heating of isolated waves will depend on the numerical resolution. In contrast, non-linear numerical solutions can exhibit significant energy loss over time, at a rate that becomes independent of grid resolution. Such behavior usually reflects the presence of a forward energy cascade, in which the rate of high frequency wave damping is determined by the rate of energy transfer into high frequency modes by numerically resolved non-linear interactions. In such cases, grid heating is expected to capture the true dissipation rate.
 
 \subsection{Numerical diagnostics}
 %
@@ -304,6 +305,7 @@ Those 2D systems will not display numerical consistency of the dissipation onset
 
 
 \subsection{2D simulations}
+\label{sec:spec_2d}
 %
 In our 2D simulations, the field is independent of the $y$ coordinate.
 We utilize initial conditions
@@ -381,7 +383,7 @@ Equations \ref{eqn:alpha-of-t} and \ref{eqn:U-of-t} together yield the relation
 %
 This description assumes that $\alpha(t)$ (or the value of $q$) is independent of grid dissipation at high $k_\perp$. The value of $k_{\rm diss}$ is proportional to the grid resolution $N$ and the evolution of $U$ depends on $N$.
 
-The predicted relation~(\ref{eqn:U-model}) can be tested by measuring $U(t)$ in the simulations with different resolutions and checking (1) whether $U_0/U(t)$ is indeed a linear function of $\ln t$, and (2) whether $q$ indeed has a universal value. This test is shown in Figure~6 for five different resolutions $N$ that span a factor of $16$. In each case, after $k_{\max}$ reaches $k_{\rm diss}$ we observe a linear growth of $U_0/U(t)$ with $\ln t$. We have measured its slope $s$ as a function of $\ln k_{\rm diss}$ and then calculated $q$ from the linear realtion inferred from Equation~(\ref{eqn:U-model}),
+The predicted relation~(\ref{eqn:U-model}) can be tested by measuring $U(t)$ in the simulations with different resolutions and checking (1) whether $U_0/U(t)$ is indeed a linear function of $\ln t$, and (2) whether $q$ indeed has a universal value. This test is shown in Figure~\ref{fit} for five different resolutions $N$ that span a factor of $16$. In each case, after $k_{\max}$ reaches $k_{\rm diss}$ we observe a linear growth of $U_0/U(t)$ with $\ln t$. We have measured its slope $s$ as a function of $\ln k_{\rm diss}$ and then calculated $q$ from the linear realtion inferred from Equation~(\ref{eqn:U-model}),
 %
 \begin{equation}
    \frac{1}{s}=\frac{1}{q}\ln\frac{k_{\rm diss}}{k_0}.
@@ -402,7 +404,7 @@ The evolution of $U_0/U(t)$ in 2D simulations. Dashed lines show the best-fit sl
 
 As discussed in Section \ref{sec:ffe}, nonlinear interactions between \alfven waves can excite fast modes. These modes are not ducted along the magnetic field lines; they have group velocity in any direction and may escape the magnetosphere. 
 In this section we examine the competition between the two energy sinks: local dissipation of the turbulent cascade and the escape of generated fast waves. 
-We use the 3D setup of colliding \alfven wave packets as described in Section~3, and compare two sets of simulations, with and without wave escape, as explained below.
+We use the 3D setup of colliding \alfven wave packets as described in Section~\ref{sec:setup}, and compare two sets of simulations, with and without wave escape, as explained below.
 %
 \subsection{Turbulent dissipation rate without wave escape}
 %
@@ -417,7 +419,7 @@ We use the 3D setup of colliding \alfven wave packets as described in Section~3,
 \label{casraterate3D}
 \end{figure*}
 %
-The periodic boundary conditions for all ($x,y,z$) directions imply that waves cannot escape the computational box; they can only dissipate. The dissipation efficiency depends on the amplitude of the colliding \alfven packets $\xi$. We have studied this dependence by calculating models with seven different values of $\xi$ between 0.5 and $3$, at fixed resolution of $512^3$. The results are presented in Figure~ 7, which shows evolution of the dissipated energy fraction,
+The periodic boundary conditions for all ($x,y,z$) directions imply that waves cannot escape the computational box; they can only dissipate. The dissipation efficiency depends on the amplitude of the colliding \alfven packets $\xi$. We have studied this dependence by calculating models with seven different values of $\xi$ between 0.5 and $3$, at fixed resolution of $512^3$. The results are presented in Figure~\ref{3Dfastwave}, which shows evolution of the dissipated energy fraction,
 \begin{equation}
   f(t)=\frac{U_0-U(t)}{U_0}.
 \end{equation}
@@ -475,12 +477,13 @@ The difference between solid and dashed curves shows the effect of fast mode esc
 The results of the preceding sections show that wave damping takes many crossing times $\tau$, even at very high amplitudes $\xi>1$. Since this conclusion is based on numerical simulations with a concrete setup, one would like to know whether the conclusion is robust. To address this question we have tried to vary the initial setup of the \alfven wave packets in search for more efficient damping, and found that in some cases (both 2D and 3D) our FFE simulations predict much quicker dissipation, which occurs immediately in the first collisions of the wave packets, even before the development of turbulence.
 
 \subsection{Immediate dissipation observed in FFE simulations}
+\label{sec:ffe_diss}
 The immediate dissipation effect is sensitive to the initial polarization of the wave packets. It is maximized (and most convenient to study) in the simplest 1D ``slab'' setup. Then the initial perturbations of the magnetic field in the two colliding packets, $\bb_1$ and $\bb_2$, can point in any two chosen directions in the $x$-$y$ plane perpendicular to the guide field $\bb_0$. The angle between $\bb_1$ and $\bb_2$ will be denoted by $\theta$. The relative polarization $\theta$ is an important parameter of the packet collision problem, in addition to the packet amplitude $\xi$.
 
-The simple 1D setup is better suited for the study of polarization effects than the 3D and 2D setups of the preceding sections. Recall that in the 3D setting the spherical packets could not have a single direction for $\bb_1$ or $\bb_2$, and thus the polarization angle was not well defined. In the 2D setting explored in Section~4.2, we chose $\bb_1$ and $\bb_2$ along the $y$-axis perpendicular to the simulation plane $x$-$z$, which allowed us to confine the packets in a circular region in the $x$-$z$ plane. However, the requirement of $\bb_{1,2}$ being parallel (or anti-parallel) to the $y$-axis leaves only two possibilities for the relative polarization, $\theta=0$ or $180^\circ$, and in Section~4.2, we stuck to the case of $\theta = 0^\circ$.
-Therefore, in both 3D and 2D simulations presented in Section~4 we observed dissipation only through turbulence cascade to the grid scale, which takes a significant time.
+The simple 1D setup is better suited for the study of polarization effects than the 3D and 2D setups of the preceding sections. Recall that in the 3D setting the spherical packets could not have a single direction for $\bb_1$ or $\bb_2$, and thus the polarization angle was not well defined. In the 2D setting explored in Section~\ref{sec:spec_2d}, we chose $\bb_1$ and $\bb_2$ along the $y$-axis perpendicular to the simulation plane $x$-$z$, which allowed us to confine the packets in a circular region in the $x$-$z$ plane. However, the requirement of $\bb_{1,2}$ being parallel (or anti-parallel) to the $y$-axis leaves only two possibilities for the relative polarization, $\theta=0$ or $180^\circ$, and in Section~\ref{sec:spec_2d}, we stuck to the case of $\theta = 0^\circ$.
+Therefore, in both 3D and 2D simulations presented in Section~\ref{sec:spec} we observed dissipation only through turbulence cascade to the grid scale, which takes a significant time.
 
-The reason for immediate damping discussed in the present section is the activation of the dissipation channel (iii) listed in Section~3.5. Our FFE simulations show, for some values of $\theta$ and $\xi$, field evolution that violates the condition $E<B$, and then the procedure of enforcing this condition (Section~3.4) creates strong dissipation.
+The reason for immediate damping discussed in the present section is the activation of the dissipation channel (iii) listed in Section~\ref{dissipation-channels}. Our FFE simulations show, for some values of $\theta$ and $\xi$, field evolution that violates the condition $E<B$, and then the procedure of enforcing this condition (Section~\ref{magnetic-dominance}) creates strong dissipation.
 
 One can see the role of relative polarization $\theta$ for this effect from a simplified consideration that neglects the nonlinear character of  packet collisions and merely looks at the linear superposition of the colliding packets. When $\bb_1$ and $\bb_2$ are parallel ($\theta=0$), the magnetic fields of the packets add constructively while their electric fields add destructively --- the opposite Poynting fluxes of the two packets $\be_1\times \bb_1$ and $\be_2\times\bb_2$ require them to have antiparallel electric fields $\be_1$ and $\be_2$. 
 By contrast, when the packets have nearly anti-aligned $\bb_1$ and $\bb_2$, the electric fields $\be_1$ and $\be_2$ become parallel and add constructively making it possible for $E$ to exceed $B$ for sufficiently large amplitudes $\xi$.
@@ -546,7 +549,7 @@ The snapshots are taken at four times, from $t=0$ (left) to $t=0.5$ (right) in u
 \end{figure*}
 %%%%%%%%%%%%%%%%%%%
 
-These expectations are tested in Figure~9, which presents the simulation results for the 1D setup described above. It shows the fraction of energy dissipated after a single collision of the two packets, $f_1=|\Delta U|/U_0$, for different values of the relative polarization angle $\theta$ and packet amplitude $\xi$. We find that strong dissipation, caused by the imposed shortening of the electric field to sustain $E<B$, becomes active for nearly anti-polarized packets if $\xi \gtrsim 0.5$. For example, we see 20\% energy loss after a single collision when $\xi = 0.6$ and $\theta = 180^\circ$. As $\xi$ increases to 1.4, we observe $f_1$ growing to $\sim 90$\% for $\theta$ approaching $180^\circ$, and exceeding 10\% for $\theta>135^\circ$.
+These expectations are tested in Figure~\ref{dis1d}, which presents the simulation results for the 1D setup described above. It shows the fraction of energy dissipated after a single collision of the two packets, $f_1=|\Delta U|/U_0$, for different values of the relative polarization angle $\theta$ and packet amplitude $\xi$. We find that strong dissipation, caused by the imposed shortening of the electric field to sustain $E<B$, becomes active for nearly anti-polarized packets if $\xi \gtrsim 0.5$. For example, we see 20\% energy loss after a single collision when $\xi = 0.6$ and $\theta = 180^\circ$. As $\xi$ increases to 1.4, we observe $f_1$ growing to $\sim 90$\% for $\theta$ approaching $180^\circ$, and exceeding 10\% for $\theta>135^\circ$.
  
 Figure \ref{dis1d} also reveals a second peak in $f_1(\theta)$ near $\theta=90^\circ$. This peak is not predicted by the above linear superposition estimate, and thus has a nonlinear origin. However, it is also caused by the violation of $E<B$ condition.
 It can be understood by looking at the evolution of $\be\cdot \bb$ in the linear superposition approximation, $\be\cdot \bb = 2\xi^2\sin\theta$. 
@@ -563,7 +566,7 @@ The true behavior of the system when $E$ reaches $B$ is outside the realm of FFE
 Therefore, we have performed similar simulations of the 1D packet collisions in the full relativistic MHD, which does not neglect the plasma stress-energy tensor, and conserves the total energy and momentum of field and plasma. Plasma moves with a subliminal velocity $\boldsymbol{v}$, and MHD simulations never break the condition $E<B$, since the electric field $\be = -\bV \times \bb$ is obtained from the primitive variables, rather than evolved independently as it is in FFE. We use the relativistic MHD code \texttt{Mara} \citep{2012ApJ...744...32Z}.
 
 MHD is expected to approach the FFE regime in the limit of high magnetization $\sigma\gg 1$. Therefore, in our simulations we choose a high $\sigma=25$, where $\sigma=B_0^2/\rho_0$ is defined for the background magnetic field $B_0$ and $\rho_0$ is the initial (uniform) plasma density in the computational box. 
-Otherwise, the simulation setup is the same as described in Section~6.1 for the 1D FFE simulations.
+Otherwise, the simulation setup is the same as described in Section~\ref{sec:ffe_diss} for the 1D FFE simulations.
 
 Figure \ref{rmhd} compares the MHD and FFE results. For this test we chose the case where the colliding packets have amplitude $\xi=0.8$ and are anti-polarized ($\theta=180^\circ$).
 We see that MHD and FFE predict similar evolution of the free electromagnetic energy $U(t)$ up through the peak of the collision. 

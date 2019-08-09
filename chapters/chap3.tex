@@ -41,16 +41,15 @@ We show that this packet causes strong plastic heating of the crust.
 We investigate the fate of heat deposited by the plastic damping of \alfven waves. 
 In particular, we evaluate the heat flux conducted back to the surface and the resulting surface luminosity, which should emerge long after the flare. 
 
-\section{Wave transmission into the crust}\ref{wave-dyn}
+\section{Wave transmission into the crust}\label{wave-dyn}
 
 The crust is nearly incompressible and supports shear waves which can be excited by the \alfven waves impinging from the magnetosphere. 
 Excitation of two-fluid crustal modes can be neglected, and the recent claim that magnetospheric \alfven waves  transform into crustal Hall waves \citep{2015MNRAS.447.1407L} is incorrect.
-Hall waves propagating parallel to the magnetic field ${\mathbf B}$ with frequency $\omega$ in the crust of density $\rho$ have refraction index 
+Hall waves propagating parallel to the magnetic field ${\mathbf B}$ with frequency $\omega$ in the crust of density $\rho$ have refractive index 
 ${\cal N}=ck/\omega=\omega_{\mathrm{pe}}/\sqrt{\omega\omega_B}
 \approx 10^{9}\, \rho_{11}^{1/2} \omega_5^{-1/2} B_{14}^{-1/2}$. 
-%(we use the standard notation $X_m=X/10^m$ for a quantity $X$ in cgs units). 
 This implies a huge impedance mismatch with the magnetospheric \alfven waves, which have ${\cal N}\approx 1$, and therefore their transformation to Hall waves is suppressed.
-\footnote{Only electrons move in a Hall wave (analogous to whistler in plasma physics) while ions are static.
+\footnote{Only electrons move in a Hall wave (analogous to whistler modes in plasma physics) while ions are static.
 The velocity of the electron fluid $\mathbf{v}_H=\mathbf{j}/en_e$ is related to electric current $\mathbf{j}=(c/4\pi)\nabla\times {\mathbf B}$, which gives a tiny $v_{\rm H}$ because of the high electron density $n_e$ in the crust. 
 Therefore, the ``two-fluid"(electron-ion) description is useful only for slow phenomena in the crust.}
 No significant separation between electron and ion velocities can occur on ms timescales, and the response of the crust to the external disturbance is essentially single-fluid.
@@ -237,11 +236,11 @@ Therefore, the model should keep track of the crustal temperature.
 \subsection{Pre-flare temperature profile}\label{sec:steady-temp}
 
 The typical persistent surface temperature of magnetars is $\Ts\sim (3-4)\times 10^6$~K \citep{2006csxs.book..547W}. 
-It corresponds to the radiation energy flux $F=\sigma \Ts^4\sim 10^{22}$~erg~s$^{-1}$, where $\sigma=5.67\times 10^{-5}$~erg~s$^{-1}$~cm$^{-2}$~K$^{-4}$ is the Stefan-Boltzmann constant. 
+It corresponds to the radiation energy flux $F=\sigma_{\rm SB} \Ts^4\sim 10^{22}$~erg~s$^{-1}$, where $\sigma_{\rm SB}=5.67\times 10^{-5}$~erg~s$^{-1}$~cm$^{-2}$~K$^{-4}$ is the Stefan-Boltzmann constant. 
 A usual way to estimate the subsurface temperature profile of neutron stars $T(z)$ assumes that the surface flux $F$ is supplied by quasi-steady diffusion of heat from the crust. Then $T(z)$ is given by the equation,
 \begin{equation}
 \label{eq:Tin}
-   \kappa(T,z) \frac{dT}{dz} =F=\sigma \Ts^4,
+   \kappa(T,z) \frac{dT}{dz} =F=\sigma_{\rm SB} \Ts^4,
 \end{equation}
 where $\kappa$ is the effective conductivity, which is dominated by degenerate electrons at densities $\rho>10^6$~g~cm$^{-3}$ and by radiation in the low density layers near the surface. 
 Note that $\kappa$ depends on the local magnetic field. 
@@ -250,7 +249,7 @@ Combining \Eq~(\ref{eq:Tin}) with the hydrostatic equation $dP/dz=\rho g$ gives
 \label{eq:Tstruct}
    \frac{\md \log T}{\md \log P}=\frac{3}{16}\frac{PK}{g}\frac{\Ts^4}{T^4}.
 \end{equation}
-Here $P$ is the pressure, $g=(GM/R^2)(1-r_g/R)^{-1/2}$ is the surface gravitational acceleration, and $K=16\sigma T^3 /3\kappa \rho$ is the effective opacity; all quantities are measured in the local rest frame of the crust. The surface luminosity and temperature measured by a distant observer are $\Lum^\infty = (1-r_g/R)\Lum$ and $T_s^{\infty} = (1-r_g/R)^{1/2} T_s$ \citep{1977ApJ...212..825T}.
+Here $P$ is the pressure, $g=(GM/R^2)(1-r_g/R)^{-1/2}$ is the surface gravitational acceleration, and $K=16\sigma_{\rm SB} T^3 /3\kappa \rho$ is the effective opacity; all quantities are measured in the local rest frame of the crust. The surface luminosity and temperature measured by a distant observer are $\Lum^\infty = (1-r_g/R)\Lum$ and $T_s^{\infty} = (1-r_g/R)^{1/2} T_s$ \citep{1977ApJ...212..825T}.
 
 Equation~(\ref{eq:Tstruct}) assumes that the temperature profile had enough time to relax to the steady state at depths of interest, which typically takes $\sim 1$~yr. 
 In a true steady state, the relatively high surface temperature of magnetars requires a steady source of heat in the crust \citep{2006MNRAS.371..477K}
@@ -339,7 +338,7 @@ Therefore, we assume $\eta$ of the form $\eta=\alpha\,\mu\,|\,|s|-\scr|$, where 
 We tried various values of $\alpha$ and found that plastic heating weakly depends on it as long as $\alpha$ is sufficiently large, $\alpha>3\times 10^{-6}$~s. 
 Our sample numerical models use $\alpha=3\times 10^{-5}$~s.
 
-The dynamic system described by \Eq~(\ref{eq:wave}) with $\sigma$ given by \Eq~(\ref{eq:sigma}) satisfies the energy conservation law,
+The dynamic system described by \Eq~(\ref{eq:wave}) with $\sigma$ given by \Eq~(\ref{eq:sigma}) satisfies the energy conservation law where $S$ is the cross-sectional area of the flux tube,
 \beq
 \label{eq:energy}
    \frac{dQ}{dt}= S \int \frac{d\Uth}{dt}\, \md z =-\frac{d}{dt}\left(\Ekin+E_B+\Eel\right),
@@ -450,7 +449,7 @@ Convergence tests verified that this resolution is sufficient to obtain accurate
 We also verified that our simulation conserves energy with better than 1\% accuracy.
 The thermal energy lost by the crust is partially carried away by neutrinos and partially conducted through the boundaries.  
 
-Figure~\ref{fig8} shows the gradual evolution of the temperature profile $T(z)$ after the flare with the fiducial parameters (see Section~2.2 and Figures~5, 6). 
+Figure~\ref{fig8} shows the gradual evolution of the temperature profile $T(z)$ after the flare with the fiducial parameters (see Section~\ref{sec:numerical}). 
 During the first month, the initial peak of temperature at $z\sim 500$~m is reduced from $\sim 5\times 10^9$~K mainly due to neutrino losses. 
 Then the peak continues to flatten and spread due to thermal conduction, forming a rather flat profile of $T\lesssim 10^9$~K in a few years.
 
@@ -490,7 +489,7 @@ Lower panel: fixed $B_z=3\times 10^{14}$~G and varying $s_0$.}
 With increasing $B_z$ (and at fixed amplitude $s_0$ of the waves excited in the flare) the deposited plastic heat increases, which increases the role of neutrino cooling.
 As a result, the relative contributions of plasmon decay, bremsstrahlung, and synchrotron neutrino emission depend on $B_z$. 
 This dependence is shown in Figure~\ref{fig9}, where we also show the energy fraction that is conducted to the stellar surface and radiated away. 
-The remaining energy fraction (not shown in Figure~9) is conducted into the core of the neutron star.
+The remaining energy fraction (not shown in Figure~\ref{fig9}) is conducted into the core of the neutron star.
 
 One can see from Figure~\ref{fig9} that only a small fraction of the stored crustal heat is conducted to and radiated from the stellar surface.
 For example, at $B_z=3\times 10^{14}\,\rm G$ less than $1\%$ is conducted to the surface; roughly half of heat is lost neutrino emission and half is conducted to the core.
@@ -548,7 +547,7 @@ Thus $\zd$ is also the depth of the melted region. At this depth the following c
 \beq
    C_V\Tm\sim U_w.
 \eeq
-We found $\zd\sim 500$~m for a typical wave energy in magnetar giant flares and $B_z\sim 3\times 10^{14}$~G (Figure~7). Deeper melting $\zd\sim 700$~m is possible if the giant flare occurs in a flux rope of a particularly strong field $B_z\gtrsim 10^{15}$~G.
+We found $\zd\sim 500$~m for a typical wave energy in magnetar giant flares and $B_z\sim 3\times 10^{14}$~G (Figure~\ref{fig7}). Deeper melting $\zd\sim 700$~m is possible if the giant flare occurs in a flux rope of a particularly strong field $B_z\gtrsim 10^{15}$~G.
 
 (5) {\it Cooling.}
 On a timescale of months to years, the deposited heat is mostly lost to neutrino emission and conducted into the core of the star (Figures~\ref{fig8} and \ref{fig9}). 

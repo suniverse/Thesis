@@ -7,12 +7,12 @@
 \label{sec:ideal}
 
 \subsection{Nonrelativistic ideal MHD}
-Just like the dynamics of a system of particles on the scale much larger than their mean free path can be well described by hydrodynamics, magnetohydrodynamics (MHD) provides a good description for the dynamics of current-carrying particle systems in the electromagnetic fields where the characteristic length scale of interest is much larger than the mean free path as well as the gyroradius of charged particles.
+Just like the dynamics of a system of particles on the scale much larger than their mean free path can be well described by hydrodynamics, magnetohydrodynamics (MHD) provides a description of the dynamics of current-carrying particle systems in the electromagnetic fields where the characteristic length scale of interest is much larger than the mean free path as well as the gyroradius of the charged particles.
 In addition to the continuity equation
 \begin{eqnarray}\label{eq:mhd-continuity}
 	\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \boldsymbol{v})=0,
 \end{eqnarray}
-in MHD, the momentum equation of the fluid is modified with the Lorentz force $\boldsymbol{j}\times \boldsymbol{B}/c$
+the momentum equation of the fluid in MHD is modified with the Lorentz force $\boldsymbol{j}\times \boldsymbol{B}/c$
 \begin{eqnarray}\label{eq:mhd-vel}
 	\rho \left(\frac{\partial \boldsymbol{v}}{\partial t} + \boldsymbol{v}\cdot \nabla \boldsymbol{v}\right) = -\nabla P +\frac{ \boldsymbol{j}\times \boldsymbol{B}}{c}.
 \end{eqnarray}
@@ -21,14 +21,14 @@ The current $\boldsymbol{j}$ can be determined from the electrical field $\bolds
 	\boldsymbol{j} = \sigma_{\rm el} \boldsymbol{E'}
 \end{eqnarray}
 where $\sigma_{\rm el}$ is the electrical conductivity.
-For nonrelativistic fluid $v\ll c$, the Lorentz transformation of the electromagnetic field $\boldsymbol{E'} \approx \boldsymbol{E} + \boldsymbol{v}\times \boldsymbol{B}/c$, Equation~\ref{eq:ohm-fluid} can be written as 
+For nonrelativistic fluid $v\ll c$, the Lorentz transformation of the electromagnetic field is $\boldsymbol{E'} \approx \boldsymbol{E} + \boldsymbol{v}\times \boldsymbol{B}/c$, and Equation~\ref{eq:ohm-fluid} can be written as 
 \begin{eqnarray}\label{eq:mhd-j}
 	\frac{\boldsymbol{j}}{\sigma_{\rm el}} = \boldsymbol{E} +\frac{ \boldsymbol{v}}{c}\times \boldsymbol{B}.
 \end{eqnarray}
 The ideal MHD limit applies when the fluid has perfect conductivity $\sigma_{\rm el}\rightarrow\infty$, and therefore 
 \begin{eqnarray}\label{eq:mhd-vanshing-e}
 	\boldsymbol{E}=-\frac{\boldsymbol{v}}{c}\times\boldsymbol{B}.
-\end{eqnarray}.
+\end{eqnarray}
 Magnetic fields are evolved according to Faraday's law
 \begin{eqnarray}\label{eq:mhd-induction}
 	\frac{\partial \boldsymbol{B}}{\partial t} = -c\nabla\times\boldsymbol{E} = \nabla\times(\boldsymbol{v}\times\boldsymbol{B}).
@@ -42,17 +42,17 @@ The momentum equation (Equation~\ref{eq:mhd-vel}) now becomes
 \begin{eqnarray}\label{eq:mhd-momentum}
 	\rho \left(\frac{\partial \boldsymbol{v}}{\partial t} + \boldsymbol{v}\cdot \nabla \boldsymbol{v}\right) = -\nabla P + \frac{(\nabla\times \boldsymbol{B})\times\boldsymbol{B}}{4\pi} = -\nabla\left( P + \frac{B^2}{4\pi} \right) + \frac{\boldsymbol{B}\cdot\nabla\boldsymbol{B}}{4\pi}.
 \end{eqnarray}
-Equation~\ref{eq:mhd-continuity}, \ref{eq:mhd-momentum}, \ref{eq:mhd-induction} together with the equation of state for the fluid $P(\rho)$ and the divergence constraint of magnetic fields $\nabla\cdot\boldsymbol{B}=0$ forms the full set of ideal nonrelativistic MHD equations.
+Equation~\ref{eq:mhd-continuity}, \ref{eq:mhd-momentum}, \ref{eq:mhd-induction} together with the equation of state for the fluid $P(\rho)$ and the divergence constraint of magnetic fields $\nabla\cdot\boldsymbol{B}=0$ form the full set of ideal nonrelativistic MHD equations.
 
 \subsection{Waves in nonrelativistic ideal MHD}
 Linearization of MHD equations for small perturbations using $\delta P = c_s^2\delta \rho$ where $c_s$ is the sound speed of the fluid leads to three modes of waves supported by MHD.
-The first one is a purely shear transverse wave with perturbed magnetic perpendicular to the background field.
-This mode is called \alfven wave with the dispersion relation 
+The first one is a purely shear transverse wave with perturbed magnetic field perpendicular to the background field.
+This mode is called the \alfven wave with the dispersion relation 
 \begin{eqnarray}
 	\omega^2 = v_A^2 k_{\parallel}^2
 \end{eqnarray}
 where $k_{\parallel}$ is the wavevector component parallel to the background magnetic field.
-$v_A\equiv B/sqrt{4\pi\rho}$ is called the \alfven speed.
+$v_A\equiv B/\sqrt{4\pi\rho}$ is called the \alfven speed.
 \alfven waves have group velocity along the background field and can therefore only transport energy in that direction.
 The other two wave modes have dispersion relations
 \begin{eqnarray}\label{eq:magnetosonic}
@@ -89,13 +89,13 @@ In this section, we utilize units in which speeds are measured in units of the s
 The dynamical equations are given by Maxwell's equations,
 %
 \begin{eqnarray}\label{eq:Maxwell}
-	\frac{\partial\boldsymbol{B}}{\partial t}+\nabla\times \boldsymbol{E},
+	\frac{\partial\boldsymbol{B}}{\partial t}+\nabla\times \boldsymbol{E} = 0,
     \qquad
 	\frac{\partial\boldsymbol{E}}{\partial t}-\nabla\times \boldsymbol{B} &=& -\boldsymbol{J} \, ,
 \end{eqnarray}
 %
 together with 
-the vanishing force condition $\nabla_\mu T^{\mu\nu}=0$ or
+the vanishing force condition
 %
 \begin{equation}\label{ffe_condition}
 	\rho_e \boldsymbol{E}+\boldsymbol{J}\times \boldsymbol{B} = 0 \, ,
@@ -170,7 +170,7 @@ where
   \mathcal{L}\equiv \frac{\partial^2}{\partial t^2} + (\nabla\times \nabla\times)_\perp
 \end{equation}
 %
-is a linear differential operator. The operator becomes algebraical when it is applied to the Fourier modes (Equation~\ref{Fourier}), and the wave equation becomes $L\bA^{(1)}=0$, where $L(\omega,\boldsymbol{k})$ is a matrix. The condition $\det L=0$ for the existence of solutions $\bA^{(1)}\neq 0$ gives two pairs of roots $\omega(\boldsymbol{k})$, which describe the dispersion relations of the propagating eigenmodes. The corresponding eigenvectors $\boldsymbol{e}_m$ represent the wave polarization, and each eigenmode may be written in the form
+is a linear differential operator. The operator becomes algebraic when it is applied to the Fourier modes (Equation~\ref{Fourier}), and the wave equation becomes $L\bA^{(1)}=0$, where $L(\omega,\boldsymbol{k})$ is a matrix. The condition $\det L=0$ for the existence of solutions $\bA^{(1)}\neq 0$ gives two pairs of roots $\omega(\boldsymbol{k})$, which describe the dispersion relations of the propagating eigenmodes. The corresponding eigenvectors $\boldsymbol{e}_m$ represent the wave polarization, and each eigenmode may be written in the form
 %
 \begin{equation}
   \bA^{(1)}_m=\Lambda_m\,\boldsymbol{e}_m,
@@ -259,7 +259,7 @@ When the plasma fluid has finite conductivity $\sigma_{\rm el}$, Equation \ref{e
 \end{eqnarray}
 Alternatively, the non-ideal corrections can be understood in the picture of the multi-component plasma fluid which will be discussed below.
 
-A physical charge neutral plasma component should contain at least three components: electrons, ions and the neutral elements, each with mass $m_s$, charge $q_s$, number density $n_s$ and velocity $\boldsymbol{v}_s$ where $s=e,i,n$ denotes the species (note $q_n=0$ and $q_e=-e$).
+A physically charged neutral plasma should contain at least three components: electrons, ions and the neutral elements, each with mass $m_s$, charge $q_s$, number density $n_s$ and velocity $\boldsymbol{v}_s$ where $s=e,i,n$ denotes the species (note $q_n=0$ and $q_e=-e$).
 The number density $n_s$ for each component is individually conserved
 \begin{eqnarray}
 	\frac{\partial n_s}{\partial t} + \nabla\cdot (n_s \boldsymbol{v}_s) = 0.
@@ -289,14 +289,14 @@ To see the effect of $\boldsymbol{v}_s$ on Equation \ref{eq:mhd-induction}., we 
 \begin{eqnarray}\label{eq:mhd-induction-multifluid}
 	\frac{\partial \boldsymbol{B}}{\partial t} = \nabla\times\left[(\boldsymbol{v}-\boldsymbol{v}_e)\times \boldsymbol{B} + (\boldsymbol{v}_e-\boldsymbol{v}_i)\times \boldsymbol{B} + (\boldsymbol{v}_i-\boldsymbol{v}_n)\times \boldsymbol{B} + \boldsymbol{v}_n\times\boldsymbol{B}\right].
 \end{eqnarray}
-We examine the terms on the right hand side of Equation \ref{eq:mhd-induction-multifluid} separately
+Let us examine the terms on the right hand side of Equation \ref{eq:mhd-induction-multifluid} separately.
 \begin{itemize}
 	\item $\boldsymbol{v}-\boldsymbol{v}_e$ corresponds to the Ohmic dissipation and is usually expressed as 
 \begin{eqnarray}
 	(\boldsymbol{v}-\boldsymbol{v}_e)\times \boldsymbol{B} = -\frac{c^2}{4\pi\sigma_{\rm el}}\nabla\times \boldsymbol{B}.
 \end{eqnarray}
 	
-	\item $\boldsymbol{v}_e-\boldsymbol{v}_i = -\frac{\boldsymbol{j}}{e n_e}\times \boldsymbol{B} $ is the Hall effect
+	\item $\boldsymbol{v}_e-\boldsymbol{v}_i = -\frac{\boldsymbol{j}}{e n_e}$ is the Hall effect
 	\begin{eqnarray}
 		(\boldsymbol{v}_e-\boldsymbol{v}_i)\times \boldsymbol{B} = -\frac{c}{4\pi e n_e}(\nabla\times\boldsymbol{B})\times \boldsymbol{B}.
 	\end{eqnarray}
